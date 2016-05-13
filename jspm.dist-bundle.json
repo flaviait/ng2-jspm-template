@@ -1,0 +1,10 @@
+{
+  "sassPluginOptions": {
+    "sassOptions": {
+      "style": "compressed"
+    }
+  },
+  "typescriptOptions": {
+    "typeCheck": "strict"
+  }
+}

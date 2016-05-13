@@ -1,0 +1,11 @@
+/src/generated-typings.d.ts
+/typings
+jspm_packages
+*.iml
+/node_modules
+.idea
+.tmp
+npm-debug.log*
+jspm.browser.js
+/test-results
+/dist

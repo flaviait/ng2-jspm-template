@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo App</title>
+  <link rel="stylesheet" href="/main.css">
+  <script src="/jspm_packages/system.js"></script>
+  <script src="/jspm.browser-defaults.js"></script>
+  <script src="/jspm.browser.js"></script>
+  <script src="/jspm.config.js"></script>
+</head>
+<base href="/">
+<body>
+<app>
+  Loading...
+</app>
+
+<script>
+  System.import("src/dev/main.dev.ts");
+  System.import("/ports!json").then(function (ports) {
+    var script = document.createElement("script");
+    script.src = "//" + location.hostname + ":" + ports.livereload + "/livereload.js";
+    document.head.appendChild(script);
+    System.import("systemjs-hot-reloader/hot-reloader").then(function (HotReloader) {
+      new HotReloader.default("//" + location.hostname + ":" + ports.hmr);
+    });
+  });
+</script>
+</body>
+</html>

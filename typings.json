@@ -1,0 +1,11 @@
+{
+  "name": "angular2-setup-poc",
+  "version": false,
+  "dependencies": {},
+  "ambientDependencies": {
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#672afd8f7b09d839b61eeb4867753876cf79c8b6"
+  },
+  "ambientDevDependencies": {
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446"
+  }
+}
