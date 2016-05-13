@@ -104,7 +104,7 @@
     "dist-server": "npm run dist && npm run dist-start",
     "dist-start": "node server/server-dist.js",
     "dist-styles": "rimraf dist/*.css dist/*.css.map && mkdirp dist && node-sass --source-map-embed=true --source-map-contents src/main.scss | postcss -u autoprefixer -u cssnano --autoprefixer.browsers 'last 2 versions' --no-cssnano.zindex | exorcist dist/main.css.map > dist/main.css",
-    "dist-test": "rimraf .tmp/test-bundle.js && npm run dist-test-bundle && karma start karma-dist.conf.js",
+    "dist-test": "rimraf .tmp/test-bundle.js && npm run generate-typings && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d 'src/**/*.ts' .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
     "start": "npm run dev",
