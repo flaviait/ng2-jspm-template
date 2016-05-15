@@ -1,6 +1,3 @@
-///<reference path="../typings/browser.d.ts"/>
-///<reference path="./generated-typings.d.ts"/>
-
 import "zone.js";
 import "reflect-metadata";
 import {enableProdMode} from "@angular/core";
