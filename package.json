@@ -18,31 +18,33 @@
       "lib": "src"
     },
     "dependencies": {
-      "es6-shim": "github:es-shims/es6-shim@^0.35.0",
-      "immutable": "npm:immutable@^3.8.1",
-      "json": "github:systemjs/plugin-json@^0.1.2",
-      "lodash": "npm:lodash@^4.11.2",
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.9",
-      "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "scss": "github:KevCJones/plugin-scss@^0.2.11",
-      "zone.js": "npm:zone.js@0.6.12"
-    },
-    "devDependencies": {
-      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
-      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
-      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7",
-      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
-    },
-    "peerDependencies": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
       "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.0",
       "@angular/router-deprecated": "npm:@angular/router-deprecated@^2.0.0-rc.0",
-      "@ngrx/store@^1.5.0": "npm:@ngrx/store@^1.5.0",
+      "@ngrx/store": "npm:@ngrx/store@^1.5.0",
+      "es6-shim": "github:es-shims/es6-shim@^0.35.0",
+      "immutable": "npm:immutable@^3.8.1",
+      "lodash": "npm:lodash@^4.11.2",
+      "reflect-metadata": "npm:reflect-metadata@^0.1.3",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@0.6.12"
+    },
+    "devDependencies": {
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "json": "github:systemjs/plugin-json@^0.1.2",
+      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.9",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
+      "scss": "github:KevCJones/plugin-scss@^0.2.11",
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7",
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+    },
+    "peerDependencies": {
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
@@ -51,13 +53,74 @@
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
     },
     "overrides": {
+      "npm:@angular/common@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/compiler@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/core@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/platform-browser@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/router-deprecated@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@ngrx/store@1.5.0": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:immutable@3.8.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:rxjs@5.0.0-beta.6": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
       "npm:inherits@2.0.1": {
         "ignore": [
           "test.js"
