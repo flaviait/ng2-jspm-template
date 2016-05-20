@@ -3,8 +3,9 @@ import "reflect-metadata";
 import assign from "lodash/assign";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {provideStore, usePostMiddleware} from "@ngrx/store";
+import {provideRouter} from "@ngrx/router";
 import {App} from "../app/app";
-import {ROUTER_PROVIDERS} from "@angular/router-deprecated";
+import {ROUTES} from "../app/routes";
 import {TODO_PROVIDERS} from "../app/todos";
 import {reducers, initialStates} from "../app/store";
 import {dev} from "./tools.dev.ts";
@@ -12,8 +13,8 @@ import {dev} from "./tools.dev.ts";
 export {dev};
 
 const PROVIDERS = [
-  ROUTER_PROVIDERS,
   TODO_PROVIDERS,
+  provideRouter(ROUTES),
   provideStore(reducers, assign({}, initialStates, dev.currentState)),
   usePostMiddleware(dev.stateLogging),
   usePostMiddleware(dev.stateTracking)

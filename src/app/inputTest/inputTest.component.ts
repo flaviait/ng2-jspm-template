@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
 import {FORM_DIRECTIVES} from "@angular/common";
-import styles from "src/app/pages/test1.component.scss";
+import styles from "src/app/inputTest/inputTest.component.scss";
 
 @Component({
-  selector: "test-app",
+  selector: "input-test",
   directives: [FORM_DIRECTIVES],
   styles: [styles],
   template: `
@@ -14,7 +14,7 @@ import styles from "src/app/pages/test1.component.scss";
     </div>
   `
 })
-export class TestComponent {
+export class InputTestComponent {
   input: string;
 
   constructor() {

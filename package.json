@@ -23,7 +23,9 @@
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.0",
-      "@angular/router-deprecated": "npm:@angular/router-deprecated@^2.0.0-rc.0",
+      "@ngrx/core": "npm:@ngrx/core@^1.0.0",
+      "@ngrx/router": "npm:@ngrx/router@^1.0.0-beta.0",
+      "@ngrx/router-store": "npm:@ngrx/router-store@^0.0.1",
       "@ngrx/store": "npm:@ngrx/store@^1.5.0",
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
@@ -37,6 +39,7 @@
       "json": "github:systemjs/plugin-json@^0.1.2",
       "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
       "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.9",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
       "scss": "github:KevCJones/plugin-scss@^0.2.11",
@@ -51,7 +54,6 @@
       "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
@@ -93,7 +95,21 @@
           }
         }
       },
-      "npm:@angular/router-deprecated@2.0.0-rc.1": {
+      "npm:@ngrx/core@1.0.0": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@ngrx/router-store@0.0.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@ngrx/router@1.0.0-beta.1": {
         "meta": {
           "*.js": {
             "typings": true
@@ -157,12 +173,12 @@
   "scripts": {
     "check": "tslint 'src/**/*.ts' -e src/generated-typings.d.ts",
     "generate-typings": "node server/dev/write-typings.js",
-    "dev": "npm run dev-bundle & npm run dev-start & npm run dev-test",
+    "dev": "concurrently -r 'npm run dev-bundle' 'npm run dev-start' 'npm run dev-test'",
     "dev-build": "npm run dev-bundle",
     "dev-bundle": "npm run generate-typings && jspm bundle -diw 'src/**/*.ts' .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-start": "node server/server-dev.js",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
-    "dist": "npm run dist-bundle & npm run dist-test & npm run dist-styles",
+    "dist": "concurrently -r 'npm run dist-bundle' 'npm run dist-test' 'npm run dist-styles'",
     "dist-bundle": "rimraf dist/bundle.js && npm run generate-typings && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
     "dist-server": "npm run dist && npm run dist-start",
     "dist-start": "node server/server-dist.js",
@@ -179,11 +195,14 @@
     "@angular/core": "^2.0.0-rc.1",
     "@angular/platform-browser": "^2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
-    "@angular/router-deprecated": "^2.0.0-rc.1",
+    "@ngrx/core": "^1.0.0",
+    "@ngrx/router": "^1.0.0-beta.1",
+    "@ngrx/router-store": "0.0.1",
     "@ngrx/store": "^1.5.0",
     "autoprefixer": "^6.3.6",
     "chokidar": "^1.4.3",
     "chokidar-socket-emitter": "^0.5.1",
+    "concurrently": "^2.1.0",
     "cssnano": "^3.5.2",
     "exorcist": "^0.4.0",
     "glob": "^7.0.3",

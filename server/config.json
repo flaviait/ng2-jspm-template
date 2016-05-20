@@ -1,8 +1,8 @@
 {
   "appRoutes": [
     "/",
-    "/test1",
-    "/test2"
+    "/input-test",
+    "/todos*"
   ],
   "port": {
     "dev": 9987,
