@@ -9,6 +9,7 @@ import {ROUTES} from "../app/routes";
 import {TODO_PROVIDERS} from "../app/todos";
 import {reducers, initialStates} from "../app/store";
 import {dev} from "./tools.dev.ts";
+import {connectRouterToStore} from "@ngrx/router-store";
 
 export {dev};
 
@@ -17,7 +18,8 @@ const PROVIDERS = [
   provideRouter(ROUTES),
   provideStore(reducers, assign({}, initialStates, dev.currentState)),
   usePostMiddleware(dev.stateLogging),
-  usePostMiddleware(dev.stateTracking)
+  usePostMiddleware(dev.stateTracking),
+  connectRouterToStore()
 ];
 
 export const __reload = (m: {dev: typeof dev}) => {

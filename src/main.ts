@@ -8,13 +8,15 @@ import {App} from "./app/app";
 import {ROUTES} from "./app/routes";
 import {TODO_PROVIDERS} from "./app/todos";
 import {reducers, initialStates} from "./app/store";
+import {connectRouterToStore} from "@ngrx/router-store";
 
 enableProdMode();
 
 const PROVIDERS = [
   provideRouter(ROUTES),
   TODO_PROVIDERS,
-  provideStore(reducers, initialStates)
+  provideStore(reducers, initialStates),
+  connectRouterToStore()
 ];
 
 bootstrap(App, PROVIDERS);
