@@ -36,7 +36,7 @@ should not be too much overhead, since npm caches the deps).
 All the source files are placed inside the `src` directory.
 There are three important entry points:
 
-* `src/main.scss` contains the global styles. This is the place to put css frameworks and global font settings for example.
+* `src/styles/main.scss` contains the global styles. This is the place to put css frameworks and global font settings for example.
 * `src/main.ts` is the entry point for the application in production mode.
 * `src/main/dev/main.dev.ts` is the entry point for development mode.
 
