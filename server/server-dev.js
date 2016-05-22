@@ -1,13 +1,12 @@
 var express = require("express");
 var path = require("path");
 var processStyles = require("./dev/process-styles");
-var generateTypings = require("./dev/generate-typings");
 var config = require("./config.json");
 
 var app = express();
 
 require("./dev/hmr")();
-require("./dev/livereload")();
+require("./dev/watch")();
 
 config.appRoutes.forEach(route =>
   app.get(route, (req, res) =>
@@ -18,12 +17,8 @@ app.get("/main.css", (req, res) =>
     css => res.set("Content-Type", "text/css").end(css),
     err => res.status(500).send(err)
   ));
-app.get("/.tmp/generated-typings.d.ts", (req, res) => generateTypings().then(
-  typings => res.end(typings),
-  err => res.status(500).send(err)
-));
 
-app.use(express.static("."));
 app.use(require("./proxy"));
+app.use(express.static("."));
 
 app.listen(config.port.dev, () => console.log(`Listening on http://localhost:${config.port.dev}...`));
