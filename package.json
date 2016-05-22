@@ -195,7 +195,7 @@
     "jspm": "^0.17.0-beta.13",
     "karma": "^0.13.22",
     "karma-jasmine": "0.3.8",
-    "karma-jspm": "github:svi3c/karma-jspm#master",
+    "karma-jspm": "github:Workiva/karma-jspm#master",
     "karma-junit-reporter": "^1.0.0",
     "karma-mocha-reporter": "^2.0.3",
     "karma-phantomjs-launcher": "^1.0.0",
