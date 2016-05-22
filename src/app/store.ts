@@ -1,6 +1,10 @@
 import assign from "lodash/assign";
 import {todosReducer, initialTodosState} from "./todos/todos.store";
 import {routerReducer} from "@ngrx/router-store";
+import {provideStore} from "@ngrx/store";
 
-export const reducers = assign({router: routerReducer}, todosReducer);
-export const initialStates = assign({}, initialTodosState);
+const reducers = assign({router: routerReducer}, todosReducer);
+const initialStates = assign({}, initialTodosState);
+
+export const createStoreProvider = (currentState?: any) =>
+  provideStore(reducers, assign({}, initialStates, currentState));
