@@ -12,7 +12,7 @@ nav {
     &:not(:first-child) {
       margin-left: 10px;
     }
-    &.router-link-active {
+    &.active {
       background: red;
       color: white;
     }
