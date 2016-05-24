@@ -172,7 +172,7 @@
   },
   "scripts": {
     "check": "tslint \"src/**/*.ts\" -e src/generated-typings.d.ts",
-    "dev": "concurrently -r \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-generate-typings\"",
+    "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-generate-typings\"",
     "dev-build": "npm run dev-bundle",
     "dev-bundle": "npm run generate-typings && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-generate-typings": "node bin/write-typings.js --watch \"src/app/**/*.scss\" \"src/generated-typings.d.ts\"",
