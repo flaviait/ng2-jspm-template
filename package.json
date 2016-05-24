@@ -172,10 +172,11 @@
   },
   "scripts": {
     "check": "tslint \"src/**/*.ts\" -e src/generated-typings.d.ts",
-    "generate-typings": "node bin/write-typings.js \"src/app/**/*.scss\", \"src/generated-typings.d.ts\"",
-    "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\"",
+    "dev": "concurrently -r \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-generate-typings\"",
     "dev-build": "npm run dev-bundle",
     "dev-bundle": "npm run generate-typings && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
+    "dev-generate-typings": "node bin/write-typings.js --watch \"src/app/**/*.scss\", \"src/generated-typings.d.ts\"",
+    "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
     "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch src/styles/**/*.scss src/styles/main.scss .tmp/main.css",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
@@ -186,7 +187,7 @@
     "dist-styles": "rimraf dist/*.css dist/*.css.map && mkdirp dist && node bin/process-styles.js --minify src/styles/main.scss dist/main.css",
     "dist-test": "rimraf .tmp/test-bundle.js && npm run generate-typings && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d \"src/**/*.ts\" .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
-    "dev-install": "npm i && jspm i && typings i",
+    "generate-typings": "node bin/write-typings.js \"src/app/**/*.scss\", \"src/generated-typings.d.ts\"",
     "start": "npm run dev",
     "test": "jspm i && typings i && npm run check && npm run dist-test"
   },
