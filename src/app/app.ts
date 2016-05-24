@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import styles from "src/app/app.scss";
+import styles from "./app.scss";
 import {ROUTER_DIRECTIVES} from "@ngrx/router";
 
 @Component({

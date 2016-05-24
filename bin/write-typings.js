@@ -3,22 +3,35 @@ var fs = require("fs");
 var program = require("commander");
 var _ = require("lodash");
 
+var addDummyFile = file =>
+  new Promise((resolve, reject) =>
+    fs.writeFile(`${file}.ts`, `export default "";`, err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    })
+  );
+
+var removeDummyFile = file =>
+  new Promise((resolve, reject) =>
+    fs.unlink(`${file}.ts`, err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    })
+  );
+
 var updateTypings = (src, dest) =>
   new Promise((resolve, reject) =>
     glob(src, (err, files) => {
       if (err) {
         reject(err);
       } else {
-        var definitions = files
-          .map(file => `declare module "${file}" {let _: string; export default _;}`)
-          .join("\n");
-        fs.writeFile(dest, definitions, err => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve();
-          }
-        })
+        resolve(Promise.all(_.map(files, addDummyFile)));
       }
     })
   );
@@ -38,17 +51,12 @@ updateTypings(program.files, program.output).catch(error => {
 
 if (program.watch) {
   var chokidar = require("chokidar");
-  var updateDebounced = _.debounce(file => {
-    console.log(`${file} changed. Updating typings ...`);
-    updateTypings(program.files, program.output)
-      .then(
-        () => console.log(`Typings written to ${program.output}`),
-        err => console.error("Error generating typings:", err)
-      );
-  }, 100);
-
   console.log(`Watching for changes in ${program.args[0]}`);
   chokidar.watch(program.files)
-    .on("add", updateDebounced)
-    .on("unlink", updateDebounced);
+    .on("add", file =>
+      addDummyFile(file)
+        .catch(err => console.error(`Error generating typings for ${file}:`, err)))
+    .on("unlink", file =>
+      removeDummyFile(file)
+        .catch(err => console.error(`Error removing typings ${file}:`, err)));
 }
