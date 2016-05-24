@@ -1,12 +1,12 @@
 import {Component} from "@angular/core";
 import {FORM_DIRECTIVES} from "@angular/common";
-import {TodoService} from "../todos/todo.service";
+import {TodoService} from "./todo.service";
 import {Observable} from "rxjs/Observable";
-import {Todo} from "../todos/todo";
+import {Todo} from "./todo";
 import {List} from "immutable";
 
 @Component({
-  selector: "test-app",
+  selector: "todos",
   directives: [FORM_DIRECTIVES],
   template: `
     <div>
@@ -23,7 +23,7 @@ import {List} from "immutable";
     </div>
   `
 })
-export class Test2Component {
+export class TodosComponent {
   private todos: Observable<List<Todo>>;
   constructor(private todoService: TodoService) {
     this.todos = todoService.todos;

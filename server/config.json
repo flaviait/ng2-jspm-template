@@ -1,9 +1,4 @@
 {
-  "appRoutes": [
-    "/",
-    "/test1",
-    "/test2"
-  ],
   "port": {
     "dev": 9987,
     "dist": 9988,
