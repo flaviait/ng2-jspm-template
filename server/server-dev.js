@@ -4,8 +4,8 @@ var config = require("./config.json");
 
 var app = express();
 
-require("./dev/hmr")();
-require("./dev/watch")();
+require("./dev/hmr");
+require("./dev/livereload");
 
 app.get("/ports", (req, res) => res.send(require("./config.json").port));
 

@@ -6,10 +6,15 @@ var program = require("commander");
 var fs = require("fs");
 var _ = require("lodash");
 
-var AUTOPREFIXER_OPTIONS = {
+const SASS_OPTIONS = {
+  sourceMapEmbed: true,
+  sourceMapContents: true,
+  includePaths: ["node_modules"]
+};
+const AUTOPREFIXER_OPTIONS = {
   browsers: ["last 2 versions"]
 };
-var CSSNANO_OPTIONS = {
+const CSSNANO_OPTIONS = {
   zindex: false
 };
 
@@ -23,11 +28,7 @@ program.entry = program.args[0];
 program.output = program.args[1];
 
 var preprocess = file => new Promise((resolve, reject) =>
-  sass.render({
-    sourceMapEmbed: true,
-    sourceMapContents: true,
-    file: file
-  }, (error, result) => {
+  sass.render(_.assign({file: file}, SASS_OPTIONS), (error, result) => {
     if (error) {
       console.error(`${error.line}:${error.column} ${error.message}`);
       reject(error);
