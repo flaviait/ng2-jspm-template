@@ -1,4 +1,5 @@
 /src/**/*.scss.ts
+/src/**/*.html.ts
 /typings
 jspm_packages
 *.iml

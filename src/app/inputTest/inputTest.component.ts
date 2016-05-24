@@ -1,18 +1,13 @@
 import {Component} from "@angular/core";
 import {FORM_DIRECTIVES} from "@angular/common";
 import styles from "./inputTest.component.scss";
+import template from "./inputTest.component.html"
 
 @Component({
   selector: "input-test",
   directives: [FORM_DIRECTIVES],
   styles: [styles],
-  template: `
-    <div>
-      <h3>Input Test component</h3>
-      <div>You typed <span class="display">{{input}}</span></div>
-      <input type="text" [(ngModel)]="input" />
-    </div>
-  `
+  template: template
 })
 export class InputTestComponent {
   input: string;

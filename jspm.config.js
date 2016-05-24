@@ -21,6 +21,9 @@ SystemJS.config({
         },
         '*.scss': {
           'loader': 'scss'
+        },
+        '*.html': {
+          'loader': 'text'
         }
       }
     }
@@ -66,6 +69,7 @@ SystemJS.config({
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
     'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.5.8',
+    'text': 'github:systemjs/plugin-text@0.0.8',
     'tty': 'github:jspm/nodelibs-tty@0.2.0-alpha',
     'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
     'vm': 'github:jspm/nodelibs-vm@0.2.0-alpha',

@@ -3,7 +3,7 @@ import "reflect-metadata";
 import {enableProdMode} from "@angular/core";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {provideRouter} from "@ngrx/router";
-import {App} from "./app/app";
+import {AppComponent} from "./app/app.component";
 import {ROUTES} from "./app/routes";
 import {TODO_PROVIDERS} from "./app/todos";
 import {createStoreProvider} from "./app/store";
@@ -18,4 +18,4 @@ const PROVIDERS = [
   connectRouterToStore()
 ];
 
-bootstrap(App, PROVIDERS);
+bootstrap(AppComponent, PROVIDERS);
