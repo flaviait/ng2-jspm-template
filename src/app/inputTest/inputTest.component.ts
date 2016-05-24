@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {FORM_DIRECTIVES} from "@angular/common";
-import styles from "src/app/inputTest/inputTest.component.scss";
+import styles from "./inputTest.component.scss";
 
 @Component({
   selector: "input-test",

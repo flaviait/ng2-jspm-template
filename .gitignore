@@ -1,4 +1,4 @@
-/src/generated-typings.d.ts
+/src/**/*.scss.ts
 /typings
 jspm_packages
 *.iml
