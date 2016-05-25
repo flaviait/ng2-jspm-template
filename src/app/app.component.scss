@@ -1,3 +1,17 @@
+:host {
+  position: relative;
+  display: block;
+}
+.language-select {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 7px;
+  border-radius: 50%;
+  background: lightgrey;
+  color: red;
+  cursor: pointer;
+}
 nav {
   display: flex;
   & > a {

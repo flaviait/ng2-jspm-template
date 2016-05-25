@@ -4,13 +4,15 @@ import {TodoService} from "./todo.service";
 import {Observable} from "rxjs/Observable";
 import {Todo} from "./todo";
 import {List} from "immutable";
+import {TranslatePipe} from "ng2-translate/ng2-translate";
 
 @Component({
   selector: "todos",
   directives: [FORM_DIRECTIVES],
+  pipes: [TranslatePipe],
   template: `
     <div>
-      <h3>Todos for all!</h3>
+      <h3>{{'todos.heading' | translate}}</h3>
       <ul>
         <li *ngFor="let todo of todos | async">
           {{todo.text}}
@@ -18,7 +20,7 @@ import {List} from "immutable";
       </ul>
       <form (ngSubmit)="add(name.value)">
         <input #name/>
-        <button type="submit">add</button>
+        <button type="submit">{{'general.add' | translate}}</button>
       </form>
     </div>
   `

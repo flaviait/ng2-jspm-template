@@ -21,6 +21,7 @@
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
       "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
+      "@angular/http": "npm:@angular/http@^2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.0",
       "@ngrx/core": "npm:@ngrx/core@^1.0.0",
@@ -30,6 +31,7 @@
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
       "lodash": "npm:lodash@^4.11.2",
+      "ng2-translate": "npm:ng2-translate@^2.1.0",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
       "rxjs": "npm:rxjs@5.0.0-beta.6",
       "zone.js": "npm:zone.js@0.6.12"
@@ -75,6 +77,13 @@
         }
       },
       "npm:@angular/core@2.0.0-rc.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/http@2.0.0-rc.1": {
         "meta": {
           "*.js": {
             "typings": true
@@ -142,6 +151,13 @@
           "test.js"
         ]
       },
+      "npm:ng2-translate@2.1.0": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
       "npm:reflect-metadata@0.1.3": {
         "map": {
           "crypto": "@empty"
@@ -171,22 +187,24 @@
     }
   },
   "scripts": {
-    "check": "tslint \"src/**/*.ts\" -e src/generated-typings.d.ts",
-    "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-generate-typings\"",
+    "check": "tslint \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
+    "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-generate-typings\" \"npm run dev-translations\"",
     "dev-build": "npm run dev-bundle",
-    "dev-bundle": "npm run generate-typings && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
+    "dev-bundle": "npm run generate-typings && npm run translations && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-generate-typings": "node bin/write-typings.js --watch \"src/app/**/*.scss\" \"src/generated-typings.d.ts\"",
     "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
-    "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch src/styles/**/*.scss src/styles/main.scss .tmp/main.css",
+    "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
+    "dev-translations": "mkdirp .tmp && node bin/process-translations.js --watch \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "dist": "concurrently -r \"npm run dist-bundle\" \"npm run dist-test\" \"npm run dist-styles\"",
-    "dist-bundle": "rimraf dist/bundle.js && npm run generate-typings && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
+    "dist-bundle": "rimraf dist/bundle.js && npm run generate-typings && npm run translations && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
     "dist-server": "npm run dist && npm run dist-start",
     "dist-start": "node server/server-dist.js",
-    "dist-styles": "rimraf dist/*.css dist/*.css.map && mkdirp dist && node bin/process-styles.js --minify src/styles/main.scss dist/main.css",
-    "dist-test": "rimraf .tmp/test-bundle.js && npm run generate-typings && npm run dist-test-bundle && karma start karma-dist.conf.js",
+    "dist-styles": "rimraf \"dist/*.css\" \"dist/*.css.map\" && mkdirp dist && node bin/process-styles.js --minify src/styles/main.scss dist/main.css",
+    "dist-test": "rimraf .tmp/test-bundle.js && npm run generate-typings && npm run translations && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d \"src/**/*.ts\" .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
+    "translations": "mkdirp .tmp && node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "generate-typings": "node bin/write-typings.js \"src/app/**/*.scss\" \"src/generated-typings.d.ts\"",
     "start": "npm run dev",
     "test": "jspm i && typings i && npm run check && npm run dist-test"
@@ -195,6 +213,7 @@
     "@angular/common": "^2.0.0-rc.1",
     "@angular/compiler": "^2.0.0-rc.1",
     "@angular/core": "^2.0.0-rc.1",
+    "@angular/http": "^2.0.0-rc.1",
     "@angular/platform-browser": "^2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
     "@ngrx/core": "^1.0.0",
@@ -213,6 +232,7 @@
     "immutable": "^3.8.1",
     "jasmine-core": "2.4.1",
     "jasmine-reporters": "2.1.1",
+    "js-yaml": "^3.6.1",
     "jspm": "^0.17.0-beta.13",
     "karma": "^0.13.22",
     "karma-jasmine": "0.3.8",
@@ -224,6 +244,7 @@
     "livereload": "^0.4.1",
     "lodash": "^4.11.2",
     "mkdirp": "^0.5.1",
+    "ng2-translate": "^2.1.0",
     "node-sass": "^3.7.0",
     "phantomjs-prebuilt": "^2.1.7",
     "postcss": "^5.0.21",
