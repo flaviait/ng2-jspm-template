@@ -15,14 +15,25 @@
 </app>
 
 <script>
-  System.import("src/dev/main.dev.ts");
-  System.import("/ports!json").then(function (ports) {
-    var script = document.createElement("script");
-    script.src = "//" + location.hostname + ":" + ports.livereload + "/livereload.js";
-    document.head.appendChild(script);
-    System.import("systemjs-hot-reloader/hot-reloader").then(function (HotReloader) {
-      new HotReloader.default("//" + location.hostname + ":" + ports.hmr);
-    });
+  Promise.all([
+    System.import("/dev/ports.js"),
+    System.import("systemjs-hot-reloader/hot-reloader"),
+    System.import("src/dev/main.dev.ts")
+  ]).then(function (mods) {
+    initLivereload(mods[0].initLivereload);
+    initHotModuleReplacement(mods[1], mods[0].hmr);
+
+    function initLivereload(port) {
+      var script = document.createElement("script");
+      script.src = "//" + location.hostname + ":" + port + "/livereload.js";
+      document.head.appendChild(script);
+    }
+
+    function initHotModuleReplacement(HotReloader, port) {
+      new HotReloader
+        .default("//" + location.hostname + ":" + port)
+        .hotReload("src/dev/main.dev.ts");
+    }
   });
 </script>
 </body>

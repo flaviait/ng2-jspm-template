@@ -7,7 +7,8 @@ var app = express();
 require("./dev/hmr");
 require("./dev/livereload");
 
-app.get("/ports", (req, res) => res.send(require("./config.json").port));
+app.get("/dev/ports.js", (req, res) =>
+  res.send(`module.exports = ${JSON.stringify(require("./config.json").port)};`));
 
 app.use(require("./proxy"));
 app.use(express.static("."));

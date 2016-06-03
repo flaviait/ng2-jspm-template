@@ -36,28 +36,28 @@
       "zone.js": "npm:zone.js@0.6.12"
     },
     "devDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "json": "github:systemjs/plugin-json@^0.1.2",
       "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
       "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.9",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "scss": "github:KevCJones/plugin-scss@^0.2.11",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7",
-      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
       "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
     },
     "overrides": {
