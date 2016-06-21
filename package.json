@@ -18,93 +18,102 @@
       "lib": "src"
     },
     "dependencies": {
-      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.1",
-      "@angular/http": "npm:@angular/http@^2.0.0-rc.1",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+      "@angular/forms": "npm:@angular/forms@^0.1.0",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.0",
-      "@ngrx/core": "npm:@ngrx/core@^1.0.0",
-      "@ngrx/router": "npm:@ngrx/router@^1.0.0-beta.0",
       "@ngrx/router-store": "npm:@ngrx/router-store@^0.0.1",
-      "@ngrx/store": "npm:@ngrx/store@^1.5.0",
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
       "lodash": "npm:lodash@^4.11.2",
       "ng2-translate": "npm:ng2-translate@^2.1.0",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
-      "zone.js": "npm:zone.js@0.6.12"
+      "store": "npm:@ngrx/store@^2.0.1"
     },
     "devDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "json": "github:systemjs/plugin-json@^0.1.2",
       "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
-      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.9",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
       "scss": "github:KevCJones/plugin-scss@^0.2.11",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7",
-      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.2",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.2",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.2",
+      "@angular/http": "npm:@angular/http@2.0.0-rc.2",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.2",
+      "@ngrx/core": "npm:@ngrx/core@^1.0.0",
+      "@ngrx/router": "npm:@ngrx/router@^1.0.0-beta.0",
+      "@ngrx/store": "npm:@ngrx/store@^2.0.1",
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
       "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
+      "zone.js": "npm:zone.js@^0.6.6"
     },
     "overrides": {
-      "npm:@angular/common@2.0.0-rc.1": {
+      "npm:@angular/common@2.0.0-rc.2": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/compiler@2.0.0-rc.1": {
+      "npm:@angular/compiler@2.0.0-rc.2": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/core@2.0.0-rc.1": {
+      "npm:@angular/core@2.0.0-rc.2": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/http@2.0.0-rc.1": {
+      "npm:@angular/forms@0.1.0": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/platform-browser@2.0.0-rc.1": {
+      "npm:@angular/http@2.0.0-rc.2": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.0.0-rc.1": {
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.2": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@ngrx/core@1.0.0": {
+      "npm:@angular/platform-browser@2.0.0-rc.2": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@ngrx/core@1.0.1": {
         "meta": {
           "*.js": {
             "typings": true
@@ -125,14 +134,39 @@
           }
         }
       },
-      "npm:@ngrx/store@1.5.0": {
+      "npm:@ngrx/store@2.0.1": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
+      "npm:debug@2.2.0": {
+        "main": "browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./browser.js": {
+            "node": "./node.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
       "npm:immutable@3.8.1": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:ms@0.7.1": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
+      },
+      "npm:ng2-translate@2.2.0": {
         "meta": {
           "*.js": {
             "typings": true
@@ -150,13 +184,6 @@
         "ignore": [
           "test.js"
         ]
-      },
-      "npm:ng2-translate@2.1.0": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
       },
       "npm:reflect-metadata@0.1.3": {
         "map": {
@@ -191,7 +218,7 @@
     "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-generate-typings\" \"npm run dev-translations\"",
     "dev-build": "npm run dev-bundle",
     "dev-bundle": "npm run generate-typings && npm run translations && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
-    "dev-generate-typings": "node bin/write-typings.js --watch \"src/app/**/*.scss\" \"src/generated-typings.d.ts\"",
+    "dev-generate-typings": "node bin/write-typings.js --watch \"src/app/**/*.scss\" \"src/generated/typings.d.ts\"",
     "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
     "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
@@ -205,7 +232,7 @@
     "dist-test": "rimraf .tmp/test-bundle.js && npm run generate-typings && npm run translations && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d \"src/**/*.ts\" .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
     "translations": "mkdirp .tmp && node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
-    "generate-typings": "node bin/write-typings.js \"src/app/**/*.scss\" \"src/generated-typings.d.ts\"",
+    "generate-typings": "node bin/write-typings.js \"src/app/**/*.scss\" \"src/generated/typings.d.ts\"",
     "start": "npm run dev",
     "test": "jspm i && typings i && npm run check && npm run dist-test"
   },
@@ -219,7 +246,7 @@
     "@ngrx/core": "^1.0.0",
     "@ngrx/router": "^1.0.0-beta.1",
     "@ngrx/router-store": "0.0.1",
-    "@ngrx/store": "^1.5.0",
+    "@ngrx/store": "^2.0.1",
     "autoprefixer": "^6.3.6",
     "chokidar": "^1.4.3",
     "chokidar-socket-emitter": "^0.5.1",
@@ -233,7 +260,7 @@
     "jasmine-core": "2.4.1",
     "jasmine-reporters": "2.1.1",
     "js-yaml": "^3.6.1",
-    "jspm": "^0.17.0-beta.13",
+    "jspm": "^0.17.0-beta.21",
     "karma": "^0.13.22",
     "karma-jasmine": "0.3.8",
     "karma-jspm": "github:Workiva/karma-jspm#master",
@@ -259,6 +286,7 @@
     "zone.js": "^0.6.12"
   },
   "dependencies": {
+    "@angular/forms": "^0.1.0",
     "express": "^4.13.4",
     "http-proxy": "^1.13.2"
   },

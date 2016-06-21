@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {FORM_DIRECTIVES} from "@angular/common";
+import {REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
 import {TodoService} from "./todo.service";
 import {Observable} from "rxjs/Observable";
 import {Todo} from "./todo";
@@ -8,7 +8,7 @@ import {TranslatePipe} from "ng2-translate/ng2-translate";
 
 @Component({
   selector: "todos",
-  directives: [FORM_DIRECTIVES],
+  directives: [REACTIVE_FORM_DIRECTIVES],
   pipes: [TranslatePipe],
   template: `
     <div>

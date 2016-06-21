@@ -9,13 +9,18 @@ import {TODO_PROVIDERS} from "./app/todos";
 import {createStoreProvider} from "./app/store";
 import {connectRouterToStore} from "@ngrx/router-store";
 import {TRANSLATE_PROVIDERS} from "ng2-translate/ng2-translate";
+import {HTTP_PROVIDERS} from "@angular/http";
+import {disableDeprecatedForms, provideForms} from "@angular/forms";
 
 enableProdMode();
 
 const PROVIDERS = [
   TRANSLATE_PROVIDERS,
-  provideRouter(ROUTES),
+  HTTP_PROVIDERS,
   TODO_PROVIDERS,
+  disableDeprecatedForms(),
+  provideForms(),
+  provideRouter(ROUTES),
   createStoreProvider(),
   connectRouterToStore()
 ];

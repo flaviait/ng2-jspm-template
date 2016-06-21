@@ -3,7 +3,7 @@ import indexOf from "lodash/indexOf";
 import {Component} from "@angular/core";
 import {ROUTER_DIRECTIVES} from "@ngrx/router";
 import {TranslateService, TranslatePipe} from "ng2-translate/ng2-translate";
-import styles from "./app.component.scss";
+import styles from "src/app/app.component.scss";
 import translations from "../generated/translations";
 
 @Component({
