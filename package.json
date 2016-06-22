@@ -18,95 +18,94 @@
       "lib": "src"
     },
     "dependencies": {
-      "@angular/forms": "npm:@angular/forms@^0.1.0",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.0",
+      "@angular/common": "npm:@angular/common@2.0.0-rc.3",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.3",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.3",
+      "@angular/forms": "npm:@angular/forms@^0.1.1",
+      "@angular/http": "npm:@angular/http@2.0.0-rc.3",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.3",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.3",
+      "@ngrx/core": "npm:@ngrx/core@^1.0.0",
+      "@ngrx/router": "npm:@ngrx/router@^1.0.0-beta.0",
+      "@ngrx/store": "npm:@ngrx/store@^2.0.1",
       "@ngrx/router-store": "npm:@ngrx/router-store@^0.0.1",
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
       "lodash": "npm:lodash@^4.11.2",
       "ng2-translate": "npm:ng2-translate@^2.1.0",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "store": "npm:@ngrx/store@^2.0.1"
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@^0.6.6"
     },
     "devDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "json": "github:systemjs/plugin-json@^0.1.2",
       "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
       "scss": "github:KevCJones/plugin-scss@^0.2.11",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.7",
-      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@2.0.0-rc.2",
-      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.2",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.2",
-      "@angular/http": "npm:@angular/http@2.0.0-rc.2",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.2",
-      "@ngrx/core": "npm:@ngrx/core@^1.0.0",
-      "@ngrx/router": "npm:@ngrx/router@^1.0.0-beta.0",
-      "@ngrx/store": "npm:@ngrx/store@^2.0.1",
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
       "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zone.js": "npm:zone.js@^0.6.6"
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
     },
     "overrides": {
-      "npm:@angular/common@2.0.0-rc.2": {
+      "npm:@angular/common@2.0.0-rc.3": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/compiler@2.0.0-rc.2": {
+      "npm:@angular/compiler@2.0.0-rc.3": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/core@2.0.0-rc.2": {
+      "npm:@angular/core@2.0.0-rc.3": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/forms@0.1.0": {
+      "npm:@angular/forms@0.1.1": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/http@2.0.0-rc.2": {
+      "npm:@angular/http@2.0.0-rc.3": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.0.0-rc.2": {
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.3": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/platform-browser@2.0.0-rc.2": {
+      "npm:@angular/platform-browser@2.0.0-rc.3": {
         "meta": {
           "*.js": {
             "typings": true
@@ -237,12 +236,13 @@
     "test": "jspm i && typings i && npm run check && npm run dist-test"
   },
   "devDependencies": {
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/http": "^2.0.0-rc.1",
-    "@angular/platform-browser": "^2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "@angular/common": "^2.0.0-rc.3",
+    "@angular/compiler": "^2.0.0-rc.3",
+    "@angular/core": "^2.0.0-rc.3",
+    "@angular/forms": "^0.1.1",
+    "@angular/http": "^2.0.0-rc.3",
+    "@angular/platform-browser": "^2.0.0-rc.3",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.3",
     "@ngrx/core": "^1.0.0",
     "@ngrx/router": "^1.0.0-beta.1",
     "@ngrx/router-store": "0.0.1",
@@ -286,7 +286,6 @@
     "zone.js": "^0.6.12"
   },
   "dependencies": {
-    "@angular/forms": "^0.1.0",
     "express": "^4.13.4",
     "http-proxy": "^1.13.2"
   },
