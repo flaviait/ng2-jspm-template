@@ -30,7 +30,7 @@ SystemJS.config({
     'map': {
       'json': 'github:systemjs/plugin-json@0.1.2',
       'net': 'github:jspm/nodelibs-net@0.2.0-alpha',
-      'plugin-babel': 'npm:systemjs-plugin-babel@0.0.9',
+      'plugin-babel': 'npm:systemjs-plugin-babel@0.0.12',
       'scss': 'github:KevCJones/plugin-scss@0.2.11',
       'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.5.9',
       'tty': 'github:jspm/nodelibs-tty@0.2.0-alpha'

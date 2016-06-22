@@ -15,7 +15,7 @@
 </app>
 
 <script>
-  System.import("src/dev/main.dev.ts");
+  System.import("src/main.dev.ts");
   System.import("/ports!json").then(function (ports) {
     var script = document.createElement("script");
     script.src = "//" + location.hostname + ":" + ports.livereload + "/livereload.js";
