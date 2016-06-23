@@ -1,4 +1,4 @@
-import {Action, Reducer} from "@ngrx/store";
+import {Action, ActionReducer} from "@ngrx/store";
 import {List} from "immutable";
 import {Todo} from "./todo";
 
@@ -14,7 +14,7 @@ export class TodoActionCreator {
   };
 }
 
-export const todosReducer: {[key: string]: Reducer<any>} = {
+export const todosReducer: {[key: string]: ActionReducer<any>} = {
   todos: (state: List<Todo>, action: Action) => {
     switch (action.type) {
       case ACTION_TYPES.ADD_TODO:

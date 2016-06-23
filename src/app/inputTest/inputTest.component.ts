@@ -1,11 +1,11 @@
 import {Component} from "@angular/core";
-import {FORM_DIRECTIVES} from "@angular/common";
-import styles from "./inputTest.component.scss";
+import {REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
+import styles from "src/app/inputTest/inputTest.component.scss";
 import {TranslatePipe} from "ng2-translate/ng2-translate";
 
 @Component({
   selector: "input-test",
-  directives: [FORM_DIRECTIVES],
+  directives: [REACTIVE_FORM_DIRECTIVES],
   pipes: [TranslatePipe],
   styles: [styles],
   template: `

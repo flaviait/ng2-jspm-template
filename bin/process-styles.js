@@ -53,14 +53,8 @@ var postprocess = input => new Promise((resolve, reject) => {
 
 var writeFile = (target, content) =>
   new Promise((resolve, reject) =>
-    fs.writeFile(target, content, err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    })
-  );
+    fs.writeFile(target, content, err =>
+      err ? reject(err) : resolve()));
 
 var writeStyles = result =>
   Promise.all([

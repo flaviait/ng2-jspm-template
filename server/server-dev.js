@@ -13,6 +13,6 @@ app.use(require("./proxy"));
 app.use(express.static("."));
 app.use(express.static(".tmp"));
 app.get("*", (req, res) =>
-  res.sendFile(path.resolve("src/dev/index.dev.html")));
+  res.sendFile(path.resolve("src/index.dev.html")));
 
 app.listen(config.port.dev, () => console.log(`Listening on http://localhost:${config.port.dev}...`));

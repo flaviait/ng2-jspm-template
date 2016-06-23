@@ -2,39 +2,22 @@ var glob = require("glob");
 var fs = require("fs");
 var program = require("commander");
 var _ = require("lodash");
+var mkdirp = require("mkdirp");
+var path = require("path");
 
-var addDummyFile = file =>
+var writeFile = (content, dest) =>
   new Promise((resolve, reject) =>
-    fs.writeFile(`${file}.ts`, `export default "";`, err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    })
-  );
-
-var removeDummyFile = file =>
-  new Promise((resolve, reject) =>
-    fs.unlink(`${file}.ts`, err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    })
-  );
+    mkdirp(path.dirname(dest), e =>
+      e ? reject(e) : fs.writeFile(dest, content, e =>
+        e ? reject(e) : resolve())));
 
 var updateTypings = (src, dest) =>
   new Promise((resolve, reject) =>
-    glob(src, (err, files) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(Promise.all(_.map(files, addDummyFile)));
-      }
-    })
-  );
+    glob(src, (err, files) =>
+      err ? reject(err) : resolve(writeFile(files
+          .map(file => `declare module "${file}" {let _: string; export default _;}`)
+          .join("\n"),
+        dest))));
 
 program
   .usage('[options] <files-glob> <output>')
@@ -54,9 +37,9 @@ if (program.watch) {
   console.log(`Watching for changes in ${program.args[0]}`);
   chokidar.watch(program.files)
     .on("add", file =>
-      addDummyFile(file)
+      updateTypings(program.files, program.output)
         .catch(err => console.error(`Error generating typings for ${file}:`, err)))
     .on("unlink", file =>
-      removeDummyFile(file)
+      updateTypings(program.files, program.output)
         .catch(err => console.error(`Error removing typings ${file}:`, err)));
 }
