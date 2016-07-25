@@ -28,6 +28,9 @@ SystemJS.config({
         '*.scss': {
           'loader': 'scss',
           'typings': true
+        },
+        '*.html': {
+          'loader': 'text'
         }
       }
     }
@@ -41,7 +44,8 @@ SystemJS.config({
       'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.6.0',
       'tty': 'github:jspm/nodelibs-tty@0.2.0-alpha',
       'os': 'github:jspm/nodelibs-os@0.2.0-alpha',
-      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.0.9'
+      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.0.9',
+      'text': 'github:systemjs/plugin-text@0.0.8'
     },
     'packages': {
       'github:KevCJones/plugin-scss@0.2.11': {

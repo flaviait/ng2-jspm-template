@@ -1,0 +1,12 @@
+<div>
+  <h3>{{'todos.heading' | translate}}</h3>
+  <ul>
+    <li *ngFor="let todo of todos | async">
+      {{todo.text}}
+    </li>
+  </ul>
+  <form (ngSubmit)="add(name.value)">
+    <input #name/>
+    <button type="submit">{{'general.add' | translate}}</button>
+  </form>
+</div>

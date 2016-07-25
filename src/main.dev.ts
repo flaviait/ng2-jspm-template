@@ -17,12 +17,10 @@ import {createStoreProvider} from "./app/app.store";
 import {InputModule} from "./app/inputTest/input.module";
 import {TodosModule} from "./app/todos/todos.module";
 
-
 let storeHolder: {
   store?: Store<any>
 } = {};
 let targetState: any = {};
-
 
 const IMPORTS = [
   HttpModule, // TODO: Why do we need this? It's just that the injector complains if it is missing.
