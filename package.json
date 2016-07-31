@@ -55,7 +55,7 @@
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "rxjs": "npm:rxjs@5.0.0-beta.7",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
@@ -178,7 +178,7 @@
           }
         }
       },
-      "npm:rxjs@5.0.0-beta.6": {
+      "npm:rxjs@5.0.0-beta.7": {
         "meta": {
           "*.js": {
             "typings": true
@@ -269,7 +269,7 @@
     "jspm": "^0.17.0-beta.22",
     "karma": "^1.1.1",
     "karma-jasmine": "1.0.2",
-    "karma-jspm": "github:Workiva/karma-jspm#master",
+    "karma-jspm": "^2.2.0",
     "karma-junit-reporter": "^1.1.0",
     "karma-mocha-reporter": "^2.0.4",
     "karma-phantomjs-launcher": "^1.0.1",
@@ -283,7 +283,7 @@
     "postcss": "^5.1.0",
     "postcss-cli": "^2.5.2",
     "rimraf": "^2.5.3",
-    "rxjs": "^5.0.0-beta.6",
+    "rxjs": "5.0.0-beta.7",
     "systemjs-hot-reloader": "^0.5.8",
     "tslint": "^3.13.0",
     "typescript": "^2.0.0",

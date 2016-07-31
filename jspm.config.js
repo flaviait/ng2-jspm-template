@@ -1,10 +1,4 @@
 SystemJS.config({
-  browserConfig: {
-    'paths': {
-      'npm:': '/jspm_packages/npm/',
-      'github:': '/jspm_packages/github/'
-    }
-  },
   nodeConfig: {
     'paths': {
       'npm:': 'jspm_packages/npm/',
@@ -166,7 +160,7 @@ SystemJS.config({
     'ng2-translate': 'npm:ng2-translate@2.2.2',
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'reflect-metadata': 'npm:reflect-metadata@0.1.3',
-    'rxjs': 'npm:rxjs@5.0.0-beta.6',
+    'rxjs': 'npm:rxjs@5.0.0-beta.7',
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
     'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
@@ -384,6 +378,11 @@ SystemJS.config({
         'bn.js': 'npm:bn.js@4.11.5',
         'inherits': 'npm:inherits@2.0.1',
         'minimalistic-assert': 'npm:minimalistic-assert@1.0.0'
+      }
+    },
+    'npm:rxjs@5.0.0-beta.7': {
+      'map': {
+        'symbol-observable': 'npm:symbol-observable@1.0.1'
       }
     }
   }
