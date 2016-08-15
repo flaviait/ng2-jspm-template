@@ -18,13 +18,12 @@
       "lib": "src"
     },
     "dependencies": {
-      "@angular/forms": "npm:@angular/forms@^0.2.0",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.4",
-      "@ngrx/router-store": "npm:@ngrx/router-store@^0.0.1",
+      "@angular/forms": "npm:@angular/forms@^0.3.0",
+      "@angular/router": "npm:@angular/router@^3.0.0-rc.1",
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
       "lodash": "npm:lodash@^4.13.1",
-      "ng2-translate": "npm:ng2-translate@^2.2.2",
+      "ng2-translate": "npm:ng2-translate@^2.4.1",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3"
     },
     "devDependencies": {
@@ -32,20 +31,20 @@
       "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
       "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@5.0.8",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@5.0.9",
       "scss": "github:KevCJones/plugin-scss@^0.2.11",
-      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.8",
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
       "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@^2.0.0-rc.4",
-      "@angular/compiler": "npm:@angular/compiler@^2.0.0-rc.4",
-      "@angular/core": "npm:@angular/core@^2.0.0-rc.4",
-      "@angular/http": "npm:@angular/http@2.0.0-rc.4",
-      "@angular/platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.4",
-      "@ngrx/core": "npm:@ngrx/core@^1.0.0",
-      "@ngrx/router": "npm:@ngrx/router@^1.0.0-beta.2",
-      "@ngrx/store": "npm:@ngrx/store@^2.0.1",
+      "@angular/common": "npm:@angular/common@^2.0.0-rc.5",
+      "@angular/compiler": "npm:@angular/compiler@^2.0.0-rc.5",
+      "@angular/core": "npm:@angular/core@^2.0.0-rc.5",
+      "@angular/http": "npm:@angular/http@2.0.0-rc.5",
+      "@angular/platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.5",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.5",
+      "@ngrx/core": "npm:@ngrx/core@^1.0.2",
+      "@ngrx/store": "npm:@ngrx/store@^2.1.2",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
@@ -55,85 +54,114 @@
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "rxjs": "npm:rxjs@5.0.0-beta.7",
+      "rxjs": "npm:rxjs@^5.0.0-beta.6",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zone.js": "npm:zone.js@^0.6.6"
+      "zone.js": "npm:zone.js@0.6.12"
     },
     "overrides": {
-      "npm:@angular/common@2.0.0-rc.4": {
+      "npm:@angular/common@2.0.0-rc.5": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          },
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/compiler@2.0.0-rc.5": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          },
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/core@2.0.0-rc.5": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          },
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/forms@0.3.0": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/compiler@2.0.0-rc.4": {
+      "npm:@angular/http@2.0.0-rc.5": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          },
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.5": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          },
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/platform-browser@2.0.0-rc.5": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          },
+          "*.js": {
+            "typings": true
+          }
+        }
+      },
+      "npm:@angular/router@3.0.0-rc.1": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/core@2.0.0-rc.4": {
+      "npm:@ngrx/core@1.0.2": {
         "meta": {
           "*.js": {
             "typings": true
           }
         }
       },
-      "npm:@angular/forms@0.2.0": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@angular/http@2.0.0-rc.4": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@angular/platform-browser-dynamic@2.0.0-rc.4": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@angular/platform-browser@2.0.0-rc.4": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@ngrx/core@1.0.1": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@ngrx/router-store@0.0.1": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@ngrx/router@1.0.0-beta.2": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:@ngrx/store@2.0.1": {
+      "npm:@ngrx/store@2.1.2": {
         "meta": {
           "*.js": {
             "typings": true
@@ -171,14 +199,7 @@
         "jspmNodeConversion": false,
         "format": "cjs"
       },
-      "npm:ng2-translate@2.2.2": {
-        "meta": {
-          "*.js": {
-            "typings": true
-          }
-        }
-      },
-      "npm:rxjs@5.0.0-beta.7": {
+      "npm:ng2-translate@2.4.1": {
         "meta": {
           "*.js": {
             "typings": true
@@ -193,6 +214,13 @@
       "npm:reflect-metadata@0.1.3": {
         "map": {
           "crypto": "@empty"
+        }
+      },
+      "npm:rxjs@5.0.0-beta.6": {
+        "meta": {
+          "*.js": {
+            "typings": true
+          }
         }
       },
       "npm:sass.js@0.9.11": {
@@ -242,23 +270,22 @@
     "test": "jspm i && typings i && npm run check && npm run dist-test"
   },
   "devDependencies": {
-    "@angular/common": "^2.0.0-rc.4",
-    "@angular/compiler": "^2.0.0-rc.4",
-    "@angular/core": "^2.0.0-rc.4",
-    "@angular/forms": "^0.2.0",
-    "@angular/http": "^2.0.0-rc.4",
-    "@angular/platform-browser": "^2.0.0-rc.4",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
-    "@ngrx/core": "^1.0.1",
-    "@ngrx/router": "^1.0.0-beta.2",
-    "@ngrx/router-store": "0.0.1",
-    "@ngrx/store": "^2.0.1",
-    "autoprefixer": "^6.3.7",
+    "@angular/common": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/core": "^2.0.0-rc.5",
+    "@angular/forms": "^0.3.0",
+    "@angular/http": "^2.0.0-rc.5",
+    "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
+    "@angular/router": "^3.0.0-rc.1",
+    "@ngrx/core": "^1.0.2",
+    "@ngrx/store": "^2.1.2",
+    "autoprefixer": "^6.4.0",
     "chokidar": "^1.6.0",
-    "chokidar-socket-emitter": "^0.5.2",
+    "chokidar-socket-emitter": "^0.5.4",
     "commander": "^2.9.0",
     "concurrently": "^2.2.0",
-    "cssnano": "^3.7.3",
+    "cssnano": "^3.7.4",
     "exorcist": "^0.4.0",
     "glob": "^7.0.5",
     "http-proxy": "^1.13.2",
@@ -266,30 +293,30 @@
     "jasmine-core": "2.4.1",
     "jasmine-reporters": "2.2.0",
     "js-yaml": "^3.6.1",
-    "jspm": "^0.17.0-beta.22",
-    "karma": "^1.1.1",
+    "jspm": "^0.17.0-beta.25",
+    "karma": "^1.2.0",
     "karma-jasmine": "1.0.2",
     "karma-jspm": "^2.2.0",
     "karma-junit-reporter": "^1.1.0",
-    "karma-mocha-reporter": "^2.0.4",
+    "karma-mocha-reporter": "^2.1.0",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "livereload": "^0.5.0",
-    "lodash": "^4.13.1",
+    "lodash": "^4.15.0",
     "mkdirp": "^0.5.1",
-    "ng2-translate": "^2.2.2",
+    "ng2-translate": "^2.4.1",
     "node-sass": "^3.8.0",
-    "phantomjs-prebuilt": "^2.1.7",
-    "postcss": "^5.1.0",
+    "phantomjs-prebuilt": "^2.1.12",
+    "postcss": "^5.1.2",
     "postcss-cli": "^2.5.2",
-    "rimraf": "^2.5.3",
-    "rxjs": "5.0.0-beta.7",
-    "systemjs-hot-reloader": "^0.5.8",
-    "tslint": "^3.13.0",
+    "rimraf": "^2.5.4",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs-hot-reloader": "^0.6.0",
+    "tslint": "^3.14.0",
     "typescript": "^2.0.0",
     "typings": "^1.3.2",
     "wait-for-change": "^1.0.2",
-    "zone.js": "^0.6.12"
+    "zone.js": "0.6.12"
   },
   "dependencies": {
     "express": "^4.14.0",

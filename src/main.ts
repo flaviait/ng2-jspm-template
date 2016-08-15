@@ -1,28 +1,32 @@
 import "zone.js";
 import "reflect-metadata";
-import {enableProdMode} from "@angular/core";
-import {bootstrap} from "@angular/platform-browser-dynamic";
-import {provideRouter} from "@ngrx/router";
+
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import {NgModule, enableProdMode} from "@angular/core";
+import {HttpModule} from "@angular/http";
+
 import {App} from "./app/app.component";
-import {ROUTES} from "./app/routes";
-import {TODO_PROVIDERS} from "./app/todos";
-import {createStoreProvider} from "./app/store";
-import {connectRouterToStore} from "@ngrx/router-store";
-import {TRANSLATE_PROVIDERS} from "ng2-translate/ng2-translate";
-import {HTTP_PROVIDERS} from "@angular/http";
-import {disableDeprecatedForms, provideForms} from "@angular/forms";
+import {APP_ROUTES, appRoutingProviders} from "./app/app.routes";
+import {createStoreProvider} from "./app/app.store";
+import {InputModule} from "./app/inputTest/input.module";
+import {TodosModule} from "./app/todos/todos.module";
 
 enableProdMode();
 
-const PROVIDERS = [
-  TRANSLATE_PROVIDERS,
-  HTTP_PROVIDERS,
-  TODO_PROVIDERS,
-  disableDeprecatedForms(),
-  provideForms(),
-  provideRouter(ROUTES),
+const IMPORTS = [
+  HttpModule, // TODO: Why do we need this? It's just that the injector complains if it is missing.
+  APP_ROUTES,
+  InputModule,
+  TodosModule,
   createStoreProvider(),
-  connectRouterToStore()
 ];
 
-bootstrap(App, PROVIDERS);
+@NgModule({
+  imports: IMPORTS,
+  providers: [appRoutingProviders],
+  bootstrap: [App]
+})
+export class AppModule {
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

@@ -1,7 +1,9 @@
-import {Route} from "@ngrx/router";
 import {TodosComponent} from "./todos.component";
+import {RouterModule} from "@angular/router";
 
-export const TODO_ROUTES: Route = {
-  path: "/todos",
-  component: TodosComponent
-};
+export const TODO_ROUTES = RouterModule.forChild([
+  {
+    path: "todos",
+    component: TodosComponent
+  }
+]);

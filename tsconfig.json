@@ -11,13 +11,16 @@
     "baseUrl": ".",
     "paths": {
       "@angular/core": [
-        "jspm_packages/npm/@angular/core@2.0.0-rc.4"
+        "jspm_packages/npm/@angular/core@2.0.0-rc.5"
+      ],
+      "@angular/platform-browser": [
+        "jspm_packages/npm/@angular/core@2.0.0-rc.5"
       ],
       "@angular/common": [
-        "jspm_packages/npm/@angular/common@2.0.0-rc.4"
+        "jspm_packages/npm/@angular/common@2.0.0-rc.5"
       ],
       "@angular/platform-browser-dynamic": [
-        "jspm_packages/npm/@angular/platform-browser-dynamic@2.0.0-rc.4"
+        "jspm_packages/npm/@angular/platform-browser-dynamic@2.0.0-rc.5"
       ],
       "rxjs/*": [
         "jspm_packages/npm/rxjs@5.0.0-beta.6/*"

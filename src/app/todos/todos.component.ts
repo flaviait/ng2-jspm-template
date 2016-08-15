@@ -1,15 +1,11 @@
-import {Component} from "@angular/core";
-import {REACTIVE_FORM_DIRECTIVES} from "@angular/forms";
+import {Component, ViewChild} from "@angular/core";
 import {TodoService} from "./todo.service";
 import {Observable} from "rxjs/Observable";
 import {Todo} from "./todo";
 import {List} from "immutable";
-import {TranslatePipe} from "ng2-translate/ng2-translate";
 
 @Component({
   selector: "todos",
-  directives: [REACTIVE_FORM_DIRECTIVES],
-  pipes: [TranslatePipe],
   template: `
     <div>
       <h3>{{'todos.heading' | translate}}</h3>
@@ -19,19 +15,22 @@ import {TranslatePipe} from "ng2-translate/ng2-translate";
         </li>
       </ul>
       <form (ngSubmit)="add(name.value)">
-        <input #name/>
+        <input #name required/>
         <button type="submit">{{'general.add' | translate}}</button>
       </form>
     </div>
   `
 })
 export class TodosComponent {
+  @ViewChild("name") name: any;
   private todos: Observable<List<Todo>>;
+
   constructor(private todoService: TodoService) {
     this.todos = todoService.todos;
   }
 
   add(name: string) {
     this.todoService.add({text: name});
+    this.name.nativeElement.value = "";
   }
 }
