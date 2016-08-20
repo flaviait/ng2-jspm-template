@@ -1,13 +1,9 @@
 import {
-  it,
-  describe,
-  beforeEach,
-  beforeEachProviders,
-  inject,
-  expect
+  TestBed,
+  inject
 } from "@angular/core/testing";
 import {TodoService} from "./todo.service";
-import {provideStore, Store} from "@ngrx/store";
+import {StoreModule, Store} from "@ngrx/store";
 import {
   todosReducer,
   TodoActionCreator,
@@ -21,13 +17,14 @@ describe("TodoService", () => {
 
   let todoService: TodoService;
 
-  beforeEachProviders(() => [
-    TodoService,
-    TodoActionCreator,
-    provideStore({todos: todosReducer}, {todos: List.of()})
-  ]);
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [TodoService, TodoActionCreator],
+      imports: [StoreModule.provideStore({todos: todosReducer}, {todos: List.of()})]
+    });
+  });
 
-  beforeEach(inject([TodoService, Store], (_todoService: TodoService, _store: Store<any>) => {
+  beforeEach(inject([TodoService], (_todoService: TodoService) => {
     todoService = _todoService;
   }));
 
