@@ -6,7 +6,7 @@ import assign from "lodash/assign";
 import {App} from "./app.component";
 import {APP_ROUTES, appRoutingProviders} from "./app.routes";
 import {createStoreProvider} from "./app.store";
-import {InputModule} from "./inputTest/input.module";
+import {InputTestModule} from "./inputTest/inputTest.module";
 import {TodosModule} from "./todos/todos.module";
 
 let initialState = {};
@@ -14,7 +14,7 @@ let initialState = {};
 const IMPORTS = [
   HttpModule,
   APP_ROUTES,
-  InputModule,
+  InputTestModule,
   TodosModule,
   createStoreProvider(initialState)
 ];
