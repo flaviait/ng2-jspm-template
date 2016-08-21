@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
-import styles from "src/app/inputTest/inputTest.component.scss";
+// noinspection TypeScriptCheckImport
+import styles from "./inputTest.component.scss";
 
 @Component({
   selector: "input-test",

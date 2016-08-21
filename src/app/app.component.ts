@@ -2,8 +2,9 @@ import each from "lodash/each";
 import indexOf from "lodash/indexOf";
 import {Component} from "@angular/core";
 import {TranslateService} from "ng2-translate/ng2-translate";
-import styles from "src/app/app.component.scss";
 import translations from "../generated/translations";
+// noinspection TypeScriptCheckImport
+import styles from "./app.component.scss";
 
 @Component({
   selector: "app",
