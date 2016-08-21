@@ -1,5 +1,7 @@
-var program = require("commander");
-var processStyles = require("../dev/styles");
+"use strict";
+
+const program = require("commander");
+const processStyles = require("../dev/styles");
 
 program
   .usage('[options] <entry> <output>')
@@ -15,12 +17,14 @@ processStyles(program.entry, program.output, {minify: program.minify})
     () => console.log(`Global styles written to ${program.output}`),
     err => {
       console.error("Error processing global styles:", err);
-      process.exit(1);
+      if (!program.watch) {
+        process.exit(1);
+      }
     }
   );
 
 if (program.watch) {
-  var watch = require("../dev/watch");
+  const watch = require("../dev/watch");
   watch(program.watch, () => {
     processStyles(program.entry, program.output, {minify: program.minify}).then(
       () => console.log(`Global styles written to ${program.output}`),

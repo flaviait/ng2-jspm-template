@@ -1,7 +1,9 @@
-var _ = require("lodash");
-var program = require("commander");
+"use strict";
 
-var processTranslations = require("../dev/translations");
+const _ = require("lodash");
+const program = require("commander");
+
+const processTranslations = require("../dev/translations");
 
 program
   .usage('[options] <files-glob> <output>')
@@ -16,11 +18,13 @@ program.output = program.args[1];
 processTranslations(program.files, program.output)
   .catch(e => {
     console.error(e);
-    process.exit(1);
+    if (!program.watch) {
+      process.exit(1);
+    }
   });
 
 if (program.watch) {
-  var watch = require("../dev/watch");
+  const watch = require("../dev/watch");
   watch(program.files, () => {
     processTranslations(program.files, program.output).then(
       () => console.log(`Translations written to ${program.output}`),

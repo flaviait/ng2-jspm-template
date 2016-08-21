@@ -1,8 +1,10 @@
-var router = require("express").Router();
-var httpProxy = require('http-proxy');
+"use strict";
+
+const router = require("express").Router();
+const httpProxy = require('http-proxy');
 
 module.exports = router;
 
-var proxy = httpProxy.createProxyServer();
+const proxy = httpProxy.createProxyServer();
 
 // Enter your proxy rules here.

@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = require("chokidar-socket-emitter")({
   port: require("../server/config.json").port.hmr,
   path: "src",

@@ -1,10 +1,12 @@
-var yaml = require("js-yaml");
-var _ = require("lodash");
-var fs = require("fs");
-var path = require("path");
-var utils = require("./utils");
+"use strict";
 
-var parseYaml = (file) => {
+const yaml = require("js-yaml");
+const _ = require("lodash");
+const fs = require("fs");
+const path = require("path");
+const utils = require("./utils");
+
+const parseYaml = (file) => {
   try {
     return yaml.safeLoad(file.contents);
   } catch (e) {
@@ -16,7 +18,7 @@ var parseYaml = (file) => {
   }
 };
 
-var mapLeaves = (obj, iteratee, path) => {
+const mapLeaves = (obj, iteratee, path) => {
   path = path || [];
   return _.flatMap(obj, (value, key) => {
     if (_.isObject(value)) {
@@ -27,8 +29,8 @@ var mapLeaves = (obj, iteratee, path) => {
   })
 };
 
-var setValueAt = (obj, path, value) => {
-  var next = path.shift();
+const setValueAt = (obj, path, value) => {
+  const next = path.shift();
   if (path.length === 0) {
     obj[next] = value;
   } else {
@@ -37,27 +39,27 @@ var setValueAt = (obj, path, value) => {
   }
 };
 
-var statistics = (opts) =>
+const statistics = (opts) =>
   partials => {
-    var translations = _.flatMap(partials, partial =>
+    const translations = _.flatMap(partials, partial =>
       mapLeaves(partial.translations, (value, path) =>
         ({value, key: path.join("."), file: partial.path, lang: _.last(path)})));
 
-    var duplicatedValues = _.chain(translations)
+    const duplicatedValues = _.chain(translations)
       .filter(translation => _.filter(translations, t => translation.value === t.value && translation.lang === t.lang).length > 1)
       .groupBy("value")
       .value();
 
-    var duplicatedKeys = _.filter(translations, translation =>
+    let duplicatedKeys = _.filter(translations, translation =>
     _.filter(translations, t => translation.key === t.key).length > 1);
 
-    var conflictingKeys = _.chain(duplicatedKeys)
+    const conflictingKeys = _.chain(duplicatedKeys)
       .filter(translation => _.some(duplicatedKeys, t => translation.key === t.key && translation.value !== t.value))
       .groupBy("key")
       .value();
     duplicatedKeys = _.groupBy(duplicatedKeys, "key");
 
-    var maxFileNameLength = _.maxBy(translations, t => t.file.length).file.length;
+    const maxFileNameLength = _.maxBy(translations, t => t.file.length).file.length;
 
     if (_.size(conflictingKeys) > 0) {
       _.each(conflictingKeys, (translations, key) => {
@@ -77,7 +79,7 @@ var statistics = (opts) =>
       });
     }
 
-    var duplicatedValuesPercent = _.size(duplicatedValues) / translations.length * 100;
+    const duplicatedValuesPercent = _.size(duplicatedValues) / translations.length * 100;
     if (!_.isUndefined(opts.duplicateThreshold)) {
       if (duplicatedValuesPercent > opts.duplicateThreshold) {
         return Promise.reject(new Error(`Translation failed: Too may duplicates: ${_.size(duplicatedValues)} (${(duplicatedValuesPercent).toFixed(1)}%)`))
@@ -87,8 +89,8 @@ var statistics = (opts) =>
     return partials;
   };
 
-var byLanguage = translations => {
-  var result = {};
+const byLanguage = translations => {
+  const result = {};
   mapLeaves(translations, (value, path) => {
     setValueAt(result, [path.pop()].concat(path), value);
   });

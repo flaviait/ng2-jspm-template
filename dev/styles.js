@@ -1,9 +1,11 @@
-var sass = require("node-sass");
-var autoprefixer = require("autoprefixer");
-var cssnano = require("cssnano");
-var postcss = require("postcss");
-var _ = require("lodash");
-var utils = require("../dev/utils");
+"use strict";
+
+const sass = require("node-sass");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
+const postcss = require("postcss");
+const _ = require("lodash");
+const utils = require("../dev/utils");
 
 const SASS_OPTIONS = {
   sourceMapEmbed: true,
@@ -17,7 +19,7 @@ const CSSNANO_OPTIONS = {
   zindex: false
 };
 
-var preprocess = file =>
+const preprocess = file =>
   new Promise((resolve, reject) =>
     sass.render(_.assign({file: file}, SASS_OPTIONS), (error, result) => {
       if (error) {
@@ -28,10 +30,10 @@ var preprocess = file =>
       }
     }));
 
-var postprocess = opts =>
+const postprocess = opts =>
   input =>
     new Promise((resolve, reject) => {
-      var processors = [autoprefixer(AUTOPREFIXER_OPTIONS)];
+      const processors = [autoprefixer(AUTOPREFIXER_OPTIONS)];
       if (opts.minify) {
         processors.push(cssnano(CSSNANO_OPTIONS));
       }
@@ -43,7 +45,7 @@ var postprocess = opts =>
         );
     });
 
-var writeStyles = output =>
+const writeStyles = output =>
   result =>
     Promise.all([
       utils.writeFile(output, result.css),

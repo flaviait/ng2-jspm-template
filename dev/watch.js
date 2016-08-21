@@ -1,7 +1,7 @@
 "use strict";
 
-var _ = require("lodash");
-var chokidar = require("chokidar");
+const _ = require("lodash");
+const chokidar = require("chokidar");
 
 module.exports = (pattern, onChange, opts) => {
   opts = opts || {};

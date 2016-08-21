@@ -1,8 +1,10 @@
-var express = require("express");
-var path = require("path");
-var config = require("./config.json");
+"use strict";
 
-var app = express();
+const express = require("express");
+const path = require("path");
+const config = require("./config.json");
+
+const app = express();
 
 app.use(require("./proxy"));
 app.use(express.static("./dist"));

@@ -1,5 +1,7 @@
-var program = require("commander");
-var utils = require("../dev/utils");
+"use strict";
+
+const program = require("commander");
+const utils = require("../dev/utils");
 
 program
   .usage('<file>')
