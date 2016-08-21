@@ -34,6 +34,7 @@
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.0.9",
       "scss": "github:KevCJones/plugin-scss@^0.2.11",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
+      "text": "github:systemjs/plugin-text@^0.0.8",
       "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {

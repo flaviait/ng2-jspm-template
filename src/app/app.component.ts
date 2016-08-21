@@ -4,19 +4,13 @@ import {Component} from "@angular/core";
 import {TranslateService} from "ng2-translate/ng2-translate";
 import styles from "src/app/app.component.scss";
 import translations from "../generated/translations";
+// noinspection TypeScriptCheckImport
+import template from "./app.component.html";
 
 @Component({
   selector: "app",
   styles: [styles],
-  template: `
-    <h1>{{'app.title' | translate}}</h1>
-    <span class="language-select" (click)="rotateLanguage()">{{currentLanguage}}</span>
-    <nav>
-      <a routerLink="/input-test" routerLinkActive="active">{{'app.links.inputTest' | translate}}</a>
-      <a routerLink="/todos" routerLinkActive="active">{{'app.links.todo' | translate}}</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `
+  template
 })
 export class App {
 

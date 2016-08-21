@@ -3,23 +3,12 @@ import {TodoService} from "./todo.service";
 import {Observable} from "rxjs/Observable";
 import {Todo} from "./todo";
 import {List} from "immutable";
+// noinspection TypeScriptCheckImport
+import template from "./todos.component.html";
 
 @Component({
   selector: "todos",
-  template: `
-    <div>
-      <h3>{{'todos.heading' | translate}}</h3>
-      <ul>
-        <li *ngFor="let todo of todos | async">
-          {{todo.text}}
-        </li>
-      </ul>
-      <form (ngSubmit)="add(name.value)">
-        <input #name required/>
-        <button type="submit">{{'general.add' | translate}}</button>
-      </form>
-    </div>
-  `
+  template
 })
 export class TodosComponent {
   @ViewChild("name") name: any;
