@@ -254,19 +254,23 @@
       "quiet": true
     },
     "translations": {
-      "patterns": "src/**/*.i18n.yml",
+      "patterns": "src",
       "extensions": "yml",
+      "quiet": true
+    },
+    "dev-styles": {
+      "patterns": "src/styles",
+      "extensions": "scss",
       "quiet": true
     }
   },
   "scripts": {
     "check": "tslint \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
-    "dev": "concurrently -r \"npm run watch\" \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\"",
-    "dev-build": "npm run dev-bundle",
-    "dev-bundle": "npm run translations && npm run touch-jspm-browser && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
+    "dev": "concurrently -r \"npm run dev-test\" \"npm run dev-bundle\" \"npm run watch\" \"npm run dev-start\"",
+    "dev-bundle": "wait-for-change src/generated/translations.ts .tmp/main.css && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
-    "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
+    "dev-styles": "mkdirp .tmp && node bin/process-styles.js src/styles/main.scss .tmp/main.css",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
     "dist": "concurrently -r \"npm run dist-bundle\" \"npm run dist-test\" \"npm run dist-styles\"",
     "dist-bundle": "rimraf dist/bundle.js && npm run translations && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
@@ -328,7 +332,7 @@
     "tslint": "^3.14.0",
     "typescript": "^2.0.0",
     "typings": "^1.3.2",
-    "wait-for-change": "^1.0.2",
+    "wait-for-change": "^1.1.0",
     "zone.js": "0.6.12"
   },
   "dependencies": {

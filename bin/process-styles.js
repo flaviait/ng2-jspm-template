@@ -20,7 +20,6 @@ const CSSNANO_OPTIONS = {
 
 program
   .usage('[options] <entry> <output>')
-  .option("-w, --watch <glob>", "Watch the styles")
   .option("-m, --minify", "Minify the styles")
   .parse(process.argv);
 
@@ -71,17 +70,3 @@ processStyles()
     console.error("Error processing styles:", err);
     process.exit(1);
   });
-
-if (program.watch) {
-  var chokidar = require("chokidar");
-  console.log(`Watching for changes in ${program.watch}`);
-  chokidar.watch(program.watch)
-    .on("change", _.debounce(file => {
-      console.log(`${file} changed. Reprocessing styles ...`);
-      processStyles()
-        .then(
-          () => console.log(`Styles written to ${program.output}`),
-          err => console.error("Error processing styles:", err)
-        );
-    }, 100));
-}
