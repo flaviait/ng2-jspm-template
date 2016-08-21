@@ -1,13 +1,15 @@
-var fs = require("fs");
-var _ = require("lodash");
-var mkdirp = require("mkdirp");
-var glob = require("glob");
-var path = require("path");
+"use strict";
+
+const fs = require("fs");
+const _ = require("lodash");
+const mkdirp = require("mkdirp");
+const glob = require("glob");
+const path = require("path");
 
 module.exports = {
-  getFiles (src) {
+  getFiles (src, options) {
     return new Promise((resolve, reject) =>
-      glob(src, (e, files) =>
+      glob(src, options || {}, (e, files) =>
         e ? reject(e) : resolve(files)))
       .then(files => _.reject(files, f => _.includes(f, "*")));
   },

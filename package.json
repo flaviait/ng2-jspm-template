@@ -247,12 +247,6 @@
     }
   },
   "watch": {
-    "lint-scripts": {
-      "patterns": "src",
-      "extensions": "ts",
-      "ignore": "src/generated/**/*.ts",
-      "quiet": true
-    },
     "lint-styles": {
       "patterns": "src",
       "extensions": "scss",
@@ -260,8 +254,6 @@
     }
   },
   "scripts": {
-    "lint-scripts": "tslint \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
-    "lint-styles": "stylelint \"src/**/*.scss\"",
     "dev": "concurrently -r \"npm run dev-test\" \"npm run dev-bundle\" \"npm run watch\" \"npm run dev-start\"",
     "dev-bundle": "wait-for-change src/generated/translations.ts .tmp/main.css && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
@@ -274,13 +266,16 @@
     "dist-styles": "rimraf \"dist/*.css\" \"dist/*.css.map\" && mkdirp dist && node bin/process-styles.js --minify src/styles/main.scss dist/main.css",
     "dist-test": "rimraf .tmp/test-bundle.js && npm run translations && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d \"src/**/*.ts\" .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
+    "lint-scripts": "node bin/lint-scripts.js \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
+    "lint-styles": "stylelint \"src/**/*.scss\"",
     "touch-jspm-browser": "node bin/touch.js jspm.browser.js",
     "translations": "node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "start": "npm run dev",
     "test": "jspm i && typings i && npm run lint-scripts && npm run lint-styles && npm run dist-test",
+    "watch-lint-scripts": "node bin/lint-scripts.js -w \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
     "watch-styles": "node bin/process-styles.js -w \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
     "watch-translations": "node bin/process-translations.js -w \"src/**/*.i18n.yml\" src/generated/translations.ts",
-    "watch": "concurrently -r \"npm-watch\" \"npm run watch-translations\" \"npm run watch-styles\""
+    "watch": "concurrently -r \"npm-watch\" \"npm run watch-translations\" \"npm run watch-styles\" \"npm run watch-lint-scripts\""
   },
   "devDependencies": {
     "@angular/common": "^2.0.0-rc.5",
