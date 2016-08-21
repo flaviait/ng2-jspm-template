@@ -257,16 +257,6 @@
       "patterns": "src",
       "extensions": "scss",
       "quiet": true
-    },
-    "translations": {
-      "patterns": "src",
-      "extensions": "yml",
-      "quiet": true
-    },
-    "dev-styles": {
-      "patterns": "src/styles",
-      "extensions": "scss",
-      "quiet": true
     }
   },
   "scripts": {
@@ -276,7 +266,6 @@
     "dev-bundle": "wait-for-change src/generated/translations.ts .tmp/main.css && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
-    "dev-styles": "mkdirp .tmp && node bin/process-styles.js src/styles/main.scss .tmp/main.css",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
     "dist": "concurrently -r \"npm run dist-bundle\" \"npm run dist-test\" \"npm run dist-styles\"",
     "dist-bundle": "rimraf dist/bundle.js && npm run translations && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
@@ -286,10 +275,12 @@
     "dist-test": "rimraf .tmp/test-bundle.js && npm run translations && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d \"src/**/*.ts\" .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
     "touch-jspm-browser": "node bin/touch.js jspm.browser.js",
-    "translations": "mkdirp .tmp && node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
+    "translations": "node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "start": "npm run dev",
     "test": "jspm i && typings i && npm run lint-scripts && npm run lint-styles && npm run dist-test",
-    "watch": "npm-watch"
+    "watch-styles": "node bin/process-styles.js -w \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
+    "watch-translations": "node bin/process-translations.js -w \"src/**/*.i18n.yml\" src/generated/translations.ts",
+    "watch": "concurrently -r \"npm-watch\" \"npm run watch-translations\" \"npm run watch-styles\""
   },
   "devDependencies": {
     "@angular/common": "^2.0.0-rc.5",
