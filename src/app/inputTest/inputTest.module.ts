@@ -25,5 +25,5 @@ import {INPUT_TEST_ROUTES} from "./inputTest.routes";
   exports: [TranslateModule],
   declarations: [InputTestComponent]
 })
-export class InputModule {
+export class InputTestModule {
 }
