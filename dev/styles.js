@@ -52,7 +52,7 @@ const writeStyles = output =>
       utils.writeFile(`${output}.map`, result.map)
     ]);
 
-module.exports = (entry, output, opts) =>
+exports.compile = (entry, output, opts) =>
   preprocess(entry)
     .then(postprocess({
       minify: opts.minify,

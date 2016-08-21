@@ -3,7 +3,7 @@
 const _ = require("lodash");
 const program = require("commander");
 
-const processTranslations = require("../dev/translations");
+const compileTranslations = require("../dev/translations").compile;
 
 program
   .usage('[options] <files-glob> <output>')
@@ -15,7 +15,7 @@ program
 program.files = program.args[0];
 program.output = program.args[1];
 
-processTranslations(program.files, program.output)
+compileTranslations(program.files, program.output)
   .catch(e => {
     console.error(e);
     if (!program.watch) {
@@ -26,7 +26,7 @@ processTranslations(program.files, program.output)
 if (program.watch) {
   const watch = require("../dev/watch");
   watch(program.files, () => {
-    processTranslations(program.files, program.output).then(
+    compileTranslations(program.files, program.output).then(
       () => console.log(`Translations written to ${program.output}`),
       err => console.error("Error processing translation:", err)
     );

@@ -97,7 +97,7 @@ const byLanguage = translations => {
   return result;
 };
 
-module.exports = (src, dest, opts) =>
+exports.compile = (src, dest, opts) =>
   utils.getFiles(src)
     .then(paths => Promise.all(paths.map(path =>
       utils.readFile(path).then(contents => ({contents, path})))))
