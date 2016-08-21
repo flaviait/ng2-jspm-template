@@ -29,7 +29,7 @@
   },
   "files": [
     "typings/index.d.ts",
-    "src/generated/typings.d.ts"
+    "src/customTypings.d.ts"
   ],
   "exclude": [
     "node_modules",
