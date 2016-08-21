@@ -252,18 +252,22 @@
       "extensions": "ts",
       "ignore": "src/generated/**/*.ts",
       "quiet": true
+    },
+    "translations": {
+      "patterns": "src/**/*.i18n.yml",
+      "extensions": "yml",
+      "quiet": true
     }
   },
   "scripts": {
     "check": "tslint \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
-    "dev": "concurrently -r \"npm run watch\" \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-translations\"",
+    "dev": "concurrently -r \"npm run watch\" \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\"",
     "dev-build": "npm run dev-bundle",
     "dev-bundle": "npm run translations && npm run touch-jspm-browser && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
     "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
-    "dev-translations": "mkdirp .tmp && node bin/process-translations.js --watch \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "dist": "concurrently -r \"npm run dist-bundle\" \"npm run dist-test\" \"npm run dist-styles\"",
     "dist-bundle": "rimraf dist/bundle.js && npm run translations && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
     "dist-server": "npm run dist && npm run dist-start",

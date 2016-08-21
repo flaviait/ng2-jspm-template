@@ -8,7 +8,6 @@ var path = require("path");
 
 program
   .usage('[options] <files-glob> <output>')
-  .option("-w, --watch", "Watch the translation files")
   .option("-v, --verbose", "Log some additional information")
   .option("-d, --duplicate-threshold <threshold>", "Limit the allowed translation duplication (in percent)")
   .parse(process.argv);
@@ -140,19 +139,3 @@ processTranslations(program.files, program.output)
     console.error(e);
     process.exit(1);
   });
-
-if (program.watch) {
-  var chokidar = require("chokidar");
-  console.log(`Watching for changes in ${program.files}`);
-  var debouncedProcessing = _.debounce(file => {
-    console.log(`${file} changed. Reprocessing translations ...`);
-    processTranslations(program.files, program.output)
-      .then(
-        () => console.log(`Translations written to ${program.output}`),
-        err => console.error("Error processing translation:", err)
-      );
-  }, 100);
-  chokidar.watch(program.files)
-    .on("change", debouncedProcessing)
-    .on("unlink", debouncedProcessing);
-}
