@@ -246,9 +246,17 @@
       }
     }
   },
+  "watch": {
+    "check": {
+      "patterns": "src",
+      "extensions": "ts",
+      "ignore": "src/generated/**/*.ts",
+      "quiet": true
+    }
+  },
   "scripts": {
     "check": "tslint \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
-    "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-translations\"",
+    "dev": "concurrently -r \"npm run watch\" \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-translations\"",
     "dev-build": "npm run dev-bundle",
     "dev-bundle": "npm run translations && npm run touch-jspm-browser && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
@@ -266,7 +274,8 @@
     "touch-jspm-browser": "node bin/touch.js jspm.browser.js",
     "translations": "mkdirp .tmp && node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "start": "npm run dev",
-    "test": "jspm i && typings i && npm run check && npm run dist-test"
+    "test": "jspm i && typings i && npm run check && npm run dist-test",
+    "watch": "npm-watch"
   },
   "devDependencies": {
     "@angular/common": "^2.0.0-rc.5",
@@ -305,6 +314,7 @@
     "mkdirp": "^0.5.1",
     "ng2-translate": "^2.4.1",
     "node-sass": "^3.8.0",
+    "npm-watch": "^0.1.6",
     "phantomjs-prebuilt": "^2.1.12",
     "postcss": "^5.1.2",
     "postcss-cli": "^2.5.2",
