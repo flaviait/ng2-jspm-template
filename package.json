@@ -54,7 +54,7 @@
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "rxjs": "npm:rxjs@^5.0.0-beta.6",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
@@ -247,26 +247,29 @@
     }
   },
   "scripts": {
-    "check": "tslint \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
-    "dev": "concurrently -r \"npm run dev-bundle\" \"npm run dev-start\" \"npm run dev-test\" \"npm run dev-styles\" \"npm run dev-translations\"",
-    "dev-build": "npm run dev-bundle",
-    "dev-bundle": "npm run translations && npm run touch-jspm-browser && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
+    "dev": "concurrently -r \"npm run dev-test\" \"npm run dev-bundle\" \"npm run watch\" \"npm run dev-start\"",
+    "dev-bundle": "wait-for-change src/generated/translations.ts .tmp/main.css && jspm bundle -diw \"src/**/*.ts\" .tmp/dev-bundle.js --config jspm.dev-bundle.json --log ok",
     "dev-install": "npm i && jspm i && typings i",
     "dev-start": "node server/server-dev.js",
-    "dev-styles": "mkdirp .tmp && node bin/process-styles.js --watch \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
     "dev-test": "wait-for-change .tmp/dev-bundle.js && karma start karma-dev.conf.js",
-    "dev-translations": "mkdirp .tmp && node bin/process-translations.js --watch \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "dist": "concurrently -r \"npm run dist-bundle\" \"npm run dist-test\" \"npm run dist-styles\"",
     "dist-bundle": "rimraf dist/bundle.js && npm run translations && jspm build src/main dist/bundle.js --minify --format global --global-name APP --config jspm.dist-bundle.json --log ok && cp src/index.html dist",
     "dist-server": "npm run dist && npm run dist-start",
     "dist-start": "node server/server-dist.js",
-    "dist-styles": "rimraf \"dist/*.css\" \"dist/*.css.map\" && mkdirp dist && node bin/process-styles.js --minify src/styles/main.scss dist/main.css",
+    "dist-styles": "rimraf \"dist/*.css\" \"dist/*.css.map\" && mkdirp dist && node bin/compile-styles.js --minify src/styles/main.scss dist/main.css",
     "dist-test": "rimraf .tmp/test-bundle.js && npm run translations && npm run dist-test-bundle && karma start karma-dist.conf.js",
     "dist-test-bundle": "jspm bundle -d \"src/**/*.ts\" .tmp/test-bundle.js --config jspm.dev-bundle.json --log ok",
+    "lint-scripts": "node bin/lint-scripts.js \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
+    "lint-styles": "node bin/lint-styles.js \"src/**/*.scss\"",
     "touch-jspm-browser": "node bin/touch.js jspm.browser.js",
-    "translations": "mkdirp .tmp && node bin/process-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
+    "translations": "node bin/compile-translations.js \"src/**/*.i18n.yml\" src/generated/translations.ts",
     "start": "npm run dev",
-    "test": "jspm i && typings i && npm run check && npm run dist-test"
+    "test": "jspm i && typings i && npm run lint-scripts && npm run lint-styles && npm run dist-test",
+    "watch-lint-scripts": "node bin/lint-scripts.js -w \"src/**/*.ts\" -e \"src/generated/**/*.ts\"",
+    "watch-lint-styles": "node bin/lint-styles.js -w \"src/**/*.scss\"",
+    "watch-styles": "node bin/compile-styles.js -w \"src/styles/**/*.scss\" src/styles/main.scss .tmp/main.css",
+    "watch-translations": "node bin/compile-translations.js -w \"src/**/*.i18n.yml\" src/generated/translations.ts",
+    "watch": "concurrently -r \"npm run watch-translations\" \"npm run watch-styles\" \"npm run watch-lint-scripts\" \"npm run watch-lint-styles\""
   },
   "devDependencies": {
     "@angular/common": "^2.0.0-rc.5",
@@ -310,11 +313,12 @@
     "postcss-cli": "^2.5.2",
     "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.6",
+    "stylelint": "^7.1.0",
     "systemjs-hot-reloader": "^0.6.0",
     "tslint": "^3.14.0",
     "typescript": "^2.0.0",
     "typings": "^1.3.2",
-    "wait-for-change": "^1.0.2",
+    "wait-for-change": "^1.1.0",
     "zone.js": "0.6.12"
   },
   "dependencies": {
@@ -322,6 +326,7 @@
     "http-proxy": "^1.14.0"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 4.5",
+    "npm": ">=3.9"
   }
 }

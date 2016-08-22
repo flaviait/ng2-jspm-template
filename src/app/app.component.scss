@@ -2,6 +2,7 @@
   position: relative;
   display: block;
 }
+
 .language-select {
   position: absolute;
   right: 0;
@@ -12,8 +13,10 @@
   color: red;
   cursor: pointer;
 }
+
 nav {
   display: flex;
+
   & > a {
     text-decoration: none;
     background: lightgrey;
@@ -23,9 +26,11 @@ nav {
     flex-grow: 1;
     font-size: 1.4em;
     text-align: center;
+
     &:not(:first-child) {
       margin-left: 10px;
     }
+
     &.active {
       background: red;
       color: white;
