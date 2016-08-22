@@ -54,12 +54,12 @@
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "rxjs": "npm:rxjs@^5.0.0-beta.6",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zone.js": "npm:zone.js@0.6.12"
+      "zone.js": "npm:zone.js@^0.6.6"
     },
     "overrides": {
       "npm:@angular/common@2.0.0-rc.5": {
@@ -326,6 +326,7 @@
     "http-proxy": "^1.14.0"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 4.5",
+    "npm": ">=3.9"
   }
 }
