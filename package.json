@@ -59,7 +59,7 @@
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zone.js": "npm:zone.js@^0.6.6"
+      "zone.js": "npm:zone.js@0.6.12"
     },
     "overrides": {
       "npm:@angular/common@2.0.0-rc.5": {
