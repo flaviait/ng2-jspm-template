@@ -2,7 +2,7 @@ module.exports = config =>
   config.set({
     basePath: "",
     frameworks: ["jspm", "jasmine"],
-    files: [".tmp/test-bundle.js"],
+    files: [".tmp/test-bundle.js", "jspm_packages/system-polyfills.js"],
     jspm: {
       config: "jspm.config.js",
       browser: "jspm.test.js",
