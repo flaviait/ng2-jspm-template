@@ -1,7 +1,7 @@
 "use strict";
 
-const _ = require("lodash");
 const program = require("commander");
+const logger = require("log4js").getLogger("translations");
 
 const compileTranslations = require("../dev/translations").compile;
 
@@ -17,7 +17,7 @@ program.output = program.args[1];
 
 compileTranslations(program.files, program.output)
   .catch(e => {
-    console.error(e);
+    logger.error(e);
     if (!program.watch) {
       process.exit(1);
     }
@@ -27,8 +27,8 @@ if (program.watch) {
   const watch = require("../dev/watch");
   watch(program.files, () => {
     compileTranslations(program.files, program.output).then(
-      () => console.log(`Translations written to ${program.output}`),
-      err => console.error("Error processing translation:", err)
+      () => logger.log(`Translations written to ${program.output}`),
+      err => logger.error("Error processing translation:", err)
     );
   }, {events: ["change", "unlink"]});
 }

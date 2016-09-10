@@ -2,6 +2,7 @@
 
 const _ = require("lodash");
 const program = require("commander");
+const logger = require("log4js").getLogger("lint-scripts");
 
 const utils = require("../dev/utils");
 const lintScripts = require("../dev/scripts").lint;
@@ -16,17 +17,17 @@ program.files = program.args[0];
 
 const printError = e => {
   if (e.code === "ELINT") {
-    console.error(`There are ${e.count} linting errors:`);
-    console.error(e.output);
+    logger.error(`There are ${e.count} linting errors:`)
+    logger.error(e.output)
   } else {
-    console.error(e.stack);
+    logger.error(e.stack);
   }
 };
 
 utils.getFiles(program.files, {ignore: program.exclude})
   .then(lintScripts)
   .then(
-    () => console.log("No script linting errors"),
+    () => logger.info("No linting errors"),
     e => {
       printError(e);
       if (!program.watch) {
@@ -39,7 +40,7 @@ if (program.watch) {
   const watch = require("../dev/watch");
   watch(program.files, files => {
     lintScripts(files).then(
-      () => console.log("No script linting errors"),
+      () => logger.info("No linting errors"),
       printError
     )
   }, {events: ["change", "unlink"]});
