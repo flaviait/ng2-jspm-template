@@ -8,7 +8,29 @@ SystemJS.config({
   transpiler: 'plugin-babel',
   typescriptOptions: {
     'tsconfig': true,
-    'typeCheck': false
+    'typeCheck': false,
+    'typings': {
+      '@angular/common': 'index.d.ts',
+      '@angular/compiler': 'index.d.ts',
+      '@angular/core': 'index.d.ts',
+      '@angular/forms': 'index.d.ts',
+      '@angular/http': 'index.d.ts',
+      '@angular/platform-browser-dynamic': 'index.d.ts',
+      '@angular/platform-browser': 'index.d.ts',
+      '@angular/router': 'index.d.ts',
+      '@angular/common/testing': '../testing/index.d.ts',
+      '@angular/compiler/testing': '../testing/index.d.ts',
+      '@angular/core/testing': '../testing/index.d.ts',
+      '@angular/http/testing': '../testing/index.d.ts',
+      '@angular/platform-browser/testing': '../testing/index.d.ts',
+      '@angular/platform-browser-dynamic/testing': '../testing/index.d.ts',
+      '@angular/router/testing': '../testing/index.d.ts',
+      '@ngrx/core': true,
+      '@ngrx/store': true,
+      'immutable': true,
+      'ng2-translate': true,
+      'rxjs': true
+    }
   },
   sassPluginOptions: {
     'autoprefixer': {
@@ -41,7 +63,7 @@ SystemJS.config({
       'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.6.0',
       'tty': 'github:jspm/nodelibs-tty@0.2.0-alpha',
       'os': 'github:jspm/nodelibs-os@0.2.0-alpha',
-      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.0.9'
+      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.1.2'
     },
     'packages': {
       'github:KevCJones/plugin-scss@0.2.11': {
@@ -97,9 +119,9 @@ SystemJS.config({
           'os-browserify': 'npm:os-browserify@0.2.1'
         }
       },
-      'github:frankwallis/plugin-typescript@5.0.9': {
+      'github:frankwallis/plugin-typescript@5.1.2': {
         'map': {
-          'typescript': 'npm:typescript@2.0.0'
+          'typescript': 'npm:typescript@2.0.2'
         }
       },
       'github:capaj/systemjs-hot-reloader@0.6.0': {
@@ -124,6 +146,13 @@ SystemJS.config({
     }
   },
   map: {
+    '@angular/router/testing': 'npm:@angular/router@3.0.0-rc.2/bundles/router-testing.umd.js',
+    '@angular/common/testing': 'npm:@angular/common@2.0.0-rc.6/bundles/common-testing.umd.js',
+    '@angular/compiler/testing': 'npm:@angular/compiler@2.0.0-rc.6/bundles/compiler-testing.umd.js',
+    '@angular/core/testing': 'npm:@angular/core@2.0.0-rc.6/bundles/core-testing.umd.js',
+    '@angular/http/testing': 'npm:@angular/http@2.0.0-rc.6/bundles/http-testing.umd.js',
+    '@angular/platform-browser/testing': 'npm:@angular/platform-browser@2.0.0-rc.6/bundles/platform-browser-testing.umd.js',
+    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic@2.0.0-rc.6/bundles/platform-browser-dynamic-testing.umd.js',
     'store': 'npm:@ngrx/store@2.1.2'
   }
 });
@@ -137,15 +166,15 @@ SystemJS.config({
   map: {
     'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
     'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
-    '@angular/router': 'npm:@angular/router@3.0.0-rc.1',
-    '@angular/common': 'npm:@angular/common@2.0.0-rc.5',
-    '@angular/compiler': 'npm:@angular/compiler@2.0.0-rc.5',
-    '@angular/core': 'npm:@angular/core@2.0.0-rc.5',
-    '@angular/forms': 'npm:@angular/forms@0.3.0',
-    '@angular/http': 'npm:@angular/http@2.0.0-rc.5',
-    '@angular/platform-browser': 'npm:@angular/platform-browser@2.0.0-rc.5',
-    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.0.0-rc.5',
-    '@ngrx/core': 'npm:@ngrx/core@1.0.2',
+    '@angular/router': 'npm:@angular/router@3.0.0-rc.2',
+    '@angular/common': 'npm:@angular/common@2.0.0-rc.6',
+    '@angular/compiler': 'npm:@angular/compiler@2.0.0-rc.6',
+    '@angular/core': 'npm:@angular/core@2.0.0-rc.6',
+    '@angular/forms': 'npm:@angular/forms@2.0.0-rc.6',
+    '@angular/http': 'npm:@angular/http@2.0.0-rc.6',
+    '@angular/platform-browser': 'npm:@angular/platform-browser@2.0.0-rc.6',
+    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.0.0-rc.6',
+    '@ngrx/core': 'npm:@ngrx/core@1.1.0',
     '@ngrx/store': 'npm:@ngrx/store@2.1.2',
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'child_process': 'github:jspm/nodelibs-child_process@0.2.0-alpha',
@@ -156,15 +185,15 @@ SystemJS.config({
     'fs': 'github:jspm/nodelibs-fs@0.2.0-alpha',
     'immutable': 'npm:immutable@3.8.1',
     'lodash': 'npm:lodash@4.13.1',
-    'ng2-translate': 'npm:ng2-translate@2.4.1',
+    'ng2-translate': 'npm:ng2-translate@2.4.3',
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'reflect-metadata': 'npm:reflect-metadata@0.1.3',
-    'rxjs': 'npm:rxjs@5.0.0-beta.6',
+    'rxjs': 'npm:rxjs@5.0.0-beta.11',
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
     'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
     'vm': 'github:jspm/nodelibs-vm@0.2.0-alpha',
-    'zone.js': 'npm:zone.js@0.6.12'
+    'zone.js': 'npm:zone.js@0.6.17'
   },
   packages: {
     'github:jspm/nodelibs-buffer@0.2.0-alpha': {
@@ -360,6 +389,11 @@ SystemJS.config({
         'bn.js': 'npm:bn.js@4.11.5',
         'inherits': 'npm:inherits@2.0.1',
         'minimalistic-assert': 'npm:minimalistic-assert@1.0.0'
+      }
+    },
+    'npm:rxjs@5.0.0-beta.11': {
+      'map': {
+        'symbol-observable': 'npm:symbol-observable@1.0.2'
       }
     }
   }

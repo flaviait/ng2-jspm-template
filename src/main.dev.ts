@@ -1,5 +1,5 @@
-import "zone.js";
 import "reflect-metadata";
+import "zone.js";
 import "rxjs/add/operator/take";
 
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
