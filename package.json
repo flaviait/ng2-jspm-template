@@ -20,6 +20,8 @@
     "dependencies": {
       "@angular/forms": "npm:@angular/forms@^2.0.0-rc.6",
       "@angular/router": "npm:@angular/router@^3.0.0-rc.2",
+      "@types/jasmine": "npm:@types/jasmine@^2.2.33",
+      "@types/lodash": "npm:@types/lodash@^4.14.34",
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
       "lodash": "npm:lodash@^4.13.1",
@@ -215,8 +217,6 @@
     "@angular/router": "^3.0.0-rc.2",
     "@ngrx/core": "^1.1.0",
     "@ngrx/store": "^2.1.2",
-    "@types/jasmine": "^2.2.33",
-    "@types/lodash": "^4.14.34",
     "autoprefixer": "^6.4.0",
     "chokidar": "^1.6.0",
     "chokidar-socket-emitter": "^0.5.4",

@@ -9,6 +9,7 @@ SystemJS.config({
   typescriptOptions: {
     'tsconfig': true,
     'typeCheck': false,
+    'types': ['lodash', 'jasmine'],
     'typings': {
       '@angular/common': 'index.d.ts',
       '@angular/compiler': 'index.d.ts',
@@ -164,6 +165,8 @@ SystemJS.config({
     'github:*/*.json'
   ],
   map: {
+    '@types/lodash': 'npm:@types/lodash@4.14.34',
+    '@types/jasmine': 'npm:@types/jasmine@2.2.33',
     'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
     'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
     '@angular/router': 'npm:@angular/router@3.0.0-rc.2',

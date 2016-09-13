@@ -11,8 +11,6 @@
     "baseUrl": "."
   },
   "files": [
-    "src/customTypings.d.ts",
-    "node_modules/@types/jasmine/index.d.ts",
-    "node_modules/@types/lodash/index.d.ts"
+    "src/customTypings.d.ts"
   ]
 }
