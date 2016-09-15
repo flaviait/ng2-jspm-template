@@ -146,13 +146,13 @@ SystemJS.config({
     }
   },
   map: {
-    '@angular/router/testing': 'npm:@angular/router@3.0.0-rc.2/bundles/router-testing.umd.js',
-    '@angular/common/testing': 'npm:@angular/common@2.0.0-rc.6/bundles/common-testing.umd.js',
-    '@angular/compiler/testing': 'npm:@angular/compiler@2.0.0-rc.6/bundles/compiler-testing.umd.js',
-    '@angular/core/testing': 'npm:@angular/core@2.0.0-rc.6/bundles/core-testing.umd.js',
-    '@angular/http/testing': 'npm:@angular/http@2.0.0-rc.6/bundles/http-testing.umd.js',
-    '@angular/platform-browser/testing': 'npm:@angular/platform-browser@2.0.0-rc.6/bundles/platform-browser-testing.umd.js',
-    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic@2.0.0-rc.6/bundles/platform-browser-dynamic-testing.umd.js',
+    '@angular/router/testing': 'npm:@angular/router@3.0.0/bundles/router-testing.umd.js',
+    '@angular/common/testing': 'npm:@angular/common@2.0.0/bundles/common-testing.umd.js',
+    '@angular/compiler/testing': 'npm:@angular/compiler@2.0.0/bundles/compiler-testing.umd.js',
+    '@angular/core/testing': 'npm:@angular/core@2.0.0/bundles/core-testing.umd.js',
+    '@angular/http/testing': 'npm:@angular/http@2.0.0/bundles/http-testing.umd.js',
+    '@angular/platform-browser/testing': 'npm:@angular/platform-browser@2.0.0/bundles/platform-browser-testing.umd.js',
+    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic@2.0.0/bundles/platform-browser-dynamic-testing.umd.js',
     'store': 'npm:@ngrx/store@2.1.2'
   }
 });
@@ -166,15 +166,15 @@ SystemJS.config({
   map: {
     'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
     'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
-    '@angular/router': 'npm:@angular/router@3.0.0-rc.2',
-    '@angular/common': 'npm:@angular/common@2.0.0-rc.6',
-    '@angular/compiler': 'npm:@angular/compiler@2.0.0-rc.6',
-    '@angular/core': 'npm:@angular/core@2.0.0-rc.6',
-    '@angular/forms': 'npm:@angular/forms@2.0.0-rc.6',
-    '@angular/http': 'npm:@angular/http@2.0.0-rc.6',
-    '@angular/platform-browser': 'npm:@angular/platform-browser@2.0.0-rc.6',
-    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.0.0-rc.6',
-    '@ngrx/core': 'npm:@ngrx/core@1.1.0',
+    '@angular/router': 'npm:@angular/router@3.0.0',
+    '@angular/common': 'npm:@angular/common@2.0.0',
+    '@angular/compiler': 'npm:@angular/compiler@2.0.0',
+    '@angular/core': 'npm:@angular/core@2.0.0',
+    '@angular/forms': 'npm:@angular/forms@2.0.0',
+    '@angular/http': 'npm:@angular/http@2.0.0',
+    '@angular/platform-browser': 'npm:@angular/platform-browser@2.0.0',
+    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.0.0',
+    '@ngrx/core': 'npm:@ngrx/core@1.2.0',
     '@ngrx/store': 'npm:@ngrx/store@2.1.2',
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'child_process': 'github:jspm/nodelibs-child_process@0.2.0-alpha',
@@ -185,15 +185,16 @@ SystemJS.config({
     'fs': 'github:jspm/nodelibs-fs@0.2.0-alpha',
     'immutable': 'npm:immutable@3.8.1',
     'lodash': 'npm:lodash@4.13.1',
-    'ng2-translate': 'npm:ng2-translate@2.4.3',
+    'ng2-translate': 'npm:ng2-translate@2.5.0',
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'reflect-metadata': 'npm:reflect-metadata@0.1.3',
-    'rxjs': 'npm:rxjs@5.0.0-beta.11',
+    'rxjs': 'npm:rxjs@5.0.0-beta.12',
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
+    'timers': 'github:jspm/nodelibs-timers@0.2.0-alpha',
     'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
     'vm': 'github:jspm/nodelibs-vm@0.2.0-alpha',
-    'zone.js': 'npm:zone.js@0.6.17'
+    'zone.js': 'npm:zone.js@0.6.23'
   },
   packages: {
     'github:jspm/nodelibs-buffer@0.2.0-alpha': {
@@ -391,9 +392,19 @@ SystemJS.config({
         'minimalistic-assert': 'npm:minimalistic-assert@1.0.0'
       }
     },
-    'npm:rxjs@5.0.0-beta.11': {
+    'npm:rxjs@5.0.0-beta.12': {
       'map': {
         'symbol-observable': 'npm:symbol-observable@1.0.2'
+      }
+    },
+    'github:jspm/nodelibs-timers@0.2.0-alpha': {
+      'map': {
+        'timers-browserify': 'npm:timers-browserify@1.4.2'
+      }
+    },
+    'npm:timers-browserify@1.4.2': {
+      'map': {
+        'process': 'npm:process@0.11.9'
       }
     }
   }
