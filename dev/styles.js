@@ -32,7 +32,7 @@ const preprocess = file =>
   new Promise((resolve, reject) =>
     sass.render(_.assign({file: file}, SASS_OPTIONS), (error, result) => {
       if (error) {
-        console.error(`${error.line}:${error.column} ${error.message}`);
+        error.message = `${error.line}:${error.column} ${error.message}`;
         reject(error);
       } else {
         resolve(result);

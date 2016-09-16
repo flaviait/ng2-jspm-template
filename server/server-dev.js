@@ -2,6 +2,8 @@
 
 const express = require("express");
 const path = require("path");
+const logger = require("log4js").getLogger("server-dev");
+
 const config = require("./config.json");
 
 const app = express();
@@ -17,4 +19,4 @@ app.use(express.static(".tmp"));
 app.get("*", (req, res) =>
   res.sendFile(path.resolve("src/index.dev.html")));
 
-app.listen(config.port.dev, () => console.log(`Listening on http://localhost:${config.port.dev}...`));
+app.listen(config.port.dev, () => logger.info(`Listening on http://localhost:${config.port.dev} ...`));
