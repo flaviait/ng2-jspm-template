@@ -1,6 +1,9 @@
 import {NgModule} from "@angular/core";
 import {HttpModule} from "@angular/http";
 
+import {MdSidenavModule} from "@angular2-material/sidenav";
+import {MdButtonModule} from "@angular2-material/button";
+
 import assign from "lodash/assign";
 
 import {App} from "./app.component";
@@ -13,6 +16,8 @@ let initialState = {};
 
 const IMPORTS = [
   HttpModule,
+  MdSidenavModule.forRoot(),
+  MdButtonModule.forRoot(),
   APP_ROUTES,
   InputTestModule,
   TodosModule,

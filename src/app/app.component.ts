@@ -12,11 +12,22 @@ import styles from "./app.component.scss";
   template: `
     <h1>{{'app.title' | translate}}</h1>
     <span class="language-select" (click)="rotateLanguage()">{{currentLanguage}}</span>
-    <nav>
-      <a routerLink="/input-test" routerLinkActive="active">{{'app.links.inputTest' | translate}}</a>
-      <a routerLink="/todos" routerLinkActive="active">{{'app.links.todo' | translate}}</a>
-    </nav>
-    <router-outlet></router-outlet>
+    <md-sidenav-layout mode="side">
+      <md-sidenav #start>
+        <button md-button routerLink="/input-test">{{'app.links.inputTest' | translate}}</button>
+        <br>
+        <button md-button routerLink="/todos">{{'app.links.todo' | translate}}</button>
+      </md-sidenav>
+      <div>
+        <header>Sidenav</header>
+        <button md-button (click)="start.toggle()">Toggle side nav</button>
+      </div>
+      <nav>
+        <a routerLink="/input-test" routerLinkActive="active">{{'app.links.inputTest' | translate}}</a>
+        <a routerLink="/todos" routerLinkActive="active">{{'app.links.todo' | translate}}</a>
+      </nav>
+      <router-outlet></router-outlet>
+    </md-sidenav-layout>
   `
 })
 export class App {

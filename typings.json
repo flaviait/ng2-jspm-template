@@ -3,6 +3,7 @@
   "version": false,
   "dependencies": {},
   "globalDependencies": {
+    "hammerjs": "registry:dt/hammerjs#2.0.8+20160724063812",
     "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#672afd8f7b09d839b61eeb4867753876cf79c8b6"
   },
   "globalDevDependencies": {
