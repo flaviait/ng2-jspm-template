@@ -17,8 +17,7 @@ program.files = program.args[0];
 
 const printError = e => {
   if (e.code === "ELINT") {
-    logger.error(`There are ${e.count} linting errors:`)
-    logger.error(e.output)
+    logger.error(`There are ${e.count} linting errors:` + "\n" + e.output);
   } else {
     logger.error(e.stack);
   }

@@ -27,7 +27,12 @@ exports.lint = (files) => {
         if (Object.keys(lintingErrors).length > 0) {
           const err = new Error("There are linting errors in the project");
           err.code = "ELINT";
-          err.output = _.values(lintingErrors).map(result => result.output).join("");
+          err.output = _.values(lintingErrors).map(result => {
+            return result.failures.map((failure) => {
+              const pos = failure.startPosition.lineAndCharacter
+              return `${failure.fileName}[${pos.line + 1}, ${pos.character}]: ${failure.failure} (${failure.ruleName})`
+            }).join("\n");
+          }).join("\n");
           err.count = _.values(lintingErrors).reduce((count, result) => result.failureCount + count, 0);
           reject(err);
         } else {
