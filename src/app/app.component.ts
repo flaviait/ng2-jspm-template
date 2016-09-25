@@ -1,4 +1,3 @@
-import each from "lodash/each";
 import indexOf from "lodash/indexOf";
 import {Component} from "@angular/core";
 import {TranslateService} from "ng2-translate/ng2-translate";
@@ -15,23 +14,20 @@ import styles from "./app.component.scss";
     <nav>
       <a routerLink="/input-test" routerLinkActive="active">{{'app.links.inputTest' | translate}}</a>
       <a routerLink="/todos" routerLinkActive="active">{{'app.links.todo' | translate}}</a>
+      <a routerLink="/lazy-test" routerLinkActive="active">{{'app.links.lazyTest' | translate}}</a>
     </nav>
     <router-outlet></router-outlet>
   `
 })
 export class App {
 
-  currentLanguage: string = "en";
+  currentLanguage: string;
 
   private availableLanguages: string[];
 
   constructor(private translate: TranslateService) {
-    each(translations, (translation, lang) => {
-      this.translate.setTranslation(lang, translation);
-    });
+    this.currentLanguage = this.translate.currentLang;
     this.availableLanguages = Object.keys(translations);
-    this.translate.use(this.currentLanguage);
-
   }
 
   rotateLanguage() {

@@ -1,0 +1,4 @@
+lazyTest:
+  text:
+    de: Diese Komponente wurde nachgeladen.
+    en: This is a lazily loaded test component.
