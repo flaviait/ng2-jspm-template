@@ -1,6 +1,7 @@
 "use strict";
 
 const program = require("commander");
+const logger = require("log4js").getLogger("lint-styles");
 
 const utils = require("../dev/utils");
 const lintStyles = require("../dev/styles").lint;
@@ -14,17 +15,16 @@ program.files = program.args[0];
 
 const printError = e => {
   if (e.code === "ELINT") {
-    console.error(`There are ${e.count} linting errors:`);
-    console.error(e.output);
+    logger.error(`There are ${e.count} linting errors:` + "\n" + e.output);
   } else {
-    console.error(e.stack);
+    logger.error(e.stack);
   }
 };
 
 utils.getFiles(program.files)
   .then(lintStyles)
   .then(
-    () => console.log("No style linting errors"),
+    () => logger.info("No linting errors"),
     e => {
       printError(e);
       if (!program.watch) {
@@ -37,7 +37,7 @@ if (program.watch) {
   const watch = require("../dev/watch");
   watch(program.files, files => {
     lintStyles(files).then(
-      () => console.log("No style linting errors"),
+      () => logger.info("No linting errors"),
       printError
     )
   });

@@ -1,3 +1,5 @@
+/// <reference types="jasmine"/>
+
 import {
   TestBed,
   inject

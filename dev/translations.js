@@ -4,6 +4,8 @@ const yaml = require("js-yaml");
 const _ = require("lodash");
 const fs = require("fs");
 const path = require("path");
+const logger = require("log4js").getLogger("translations");
+
 const utils = require("./utils");
 
 const parseYaml = (file) => {
@@ -63,18 +65,18 @@ const statistics = (opts) =>
 
     if (_.size(conflictingKeys) > 0) {
       _.each(conflictingKeys, (translations, key) => {
-        console.error(`Conflict for "${key}":`);
+        logger.error(`Conflict for "${key}":`);
         _.each(translations, t => {
-          console.error(`${_.padEnd(`${t.file} `, maxFileNameLength + 2, "-")}> ${t.value}`)
+          logger.error(`${_.padEnd(`${t.file} `, maxFileNameLength + 2, "-")}> ${t.value}`)
         });
       });
       return Promise.reject(new Error(`Translation failed: Conflicting translations.`));
     }
     if (opts.verbose) {
       _.each(duplicatedValues, (translations, value) => {
-        console.log(`Duplicated value for "${value}":`);
+        logger.debug(`Duplicated value for "${value}":`);
         _.each(translations, t => {
-          console.log(`${_.padEnd(`${t.file} `, maxFileNameLength + 2, "-")}> ${t.key}`)
+          logger.debug(`${_.padEnd(`${t.file} `, maxFileNameLength + 2, "-")}> ${t.key}`)
         });
       });
     }
@@ -85,7 +87,7 @@ const statistics = (opts) =>
         return Promise.reject(new Error(`Translation failed: Too may duplicates: ${_.size(duplicatedValues)} (${(duplicatedValuesPercent).toFixed(1)}%)`))
       }
     }
-    console.log(`Translation duplicates: ${_.size(duplicatedValues)} (${(duplicatedValuesPercent).toFixed(1)}%)`);
+    logger.debug(`Translation duplicates: ${_.size(duplicatedValues)} (${(duplicatedValuesPercent).toFixed(1)}%)`);
     return partials;
   };
 
