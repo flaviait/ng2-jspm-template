@@ -11,12 +11,6 @@
     "baseUrl": "."
   },
   "files": [
-    "typings/index.d.ts",
     "src/customTypings.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
   ]
 }
