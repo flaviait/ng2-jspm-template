@@ -9,6 +9,10 @@ SystemJS.config({
   typescriptOptions: {
     'tsconfig': true,
     'typeCheck': false,
+    'types': [
+      'lodash',
+      'jasmine'
+    ],
     'typings': {
       '@angular/common': 'index.d.ts',
       '@angular/compiler': 'index.d.ts',
@@ -71,7 +75,8 @@ SystemJS.config({
       'scss': 'github:KevCJones/plugin-scss@0.2.11',
       'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.6.0',
       'tty': 'github:jspm/nodelibs-tty@0.2.0-alpha',
-      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.1.2'
+      'os': 'github:jspm/nodelibs-os@0.2.0-alpha',
+      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.2.4'
     },
     'packages': {
       'github:KevCJones/plugin-scss@0.2.11': {
@@ -112,7 +117,7 @@ SystemJS.config({
           'querystring': 'npm:querystring@0.2.0'
         }
       },
-      'github:frankwallis/plugin-typescript@5.1.2': {
+      'github:frankwallis/plugin-typescript@5.2.4': {
         'map': {
           'typescript': 'npm:typescript@2.0.2'
         }
@@ -168,6 +173,8 @@ SystemJS.config({
     'github:*/*.json'
   ],
   map: {
+    '@types/lodash': 'npm:@types/lodash@4.14.34',
+    '@types/jasmine': 'npm:@types/jasmine@2.2.33',
     'os': 'github:jspm/nodelibs-os@0.2.0-alpha',
     'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
     'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
