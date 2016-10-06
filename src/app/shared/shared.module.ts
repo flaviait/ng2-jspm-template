@@ -11,7 +11,9 @@ import translations from "../../generated/translations";
 // for an explanation of how to properly create and use a shared module.
 @NgModule({
   imports: [
-    TranslateModule.forRoot()
+    // Imported by app module, which imports this module.
+    // See description here: https://github.com/ocombe/ng2-translate/issues/232#issuecomment-251421577
+    TranslateModule
   ],
   exports: [
     CommonModule,
