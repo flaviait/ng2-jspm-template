@@ -6,6 +6,9 @@ import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {Store} from "@ngrx/store";
 import {AppModule} from "./app/app.module";
 
+// Lazy module import to ensure hot-reloading
+import "./lazy-modules.dev";
+
 let storeHolder: any = {};
 
 // A callback which is called from the hot module replacement (HMR) when a file change is detected.

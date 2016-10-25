@@ -7,5 +7,6 @@ jspm_packages
 .tmp
 npm-debug.log*
 jspm.browser.js
+jspm.prod.js
 /test-results
 /dist

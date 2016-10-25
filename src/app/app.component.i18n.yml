@@ -9,3 +9,6 @@ app:
     todo:
       de: Aufgabenliste
       en: Todo list
+    lazyTest:
+      de: Nachlade-Test
+      en: Lazy loading test

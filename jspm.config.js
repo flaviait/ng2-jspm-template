@@ -56,6 +56,15 @@ SystemJS.config({
           'typings': true
         }
       }
+    },
+    'src/app/+lazyTest': {
+      'main': 'lazyTest.module',
+      'defaultExtension': 'ts',
+      'meta': {
+        '*.ts': {
+          'loader': 'plugin-typescript'
+        }
+      }
     }
   },
   devConfig: {
@@ -172,7 +181,8 @@ SystemJS.config({
     '@angular/http/testing': 'npm:@angular/http@2.1.1/bundles/http-testing.umd.js',
     '@angular/platform-browser/testing': 'npm:@angular/platform-browser@2.1.1/bundles/platform-browser-testing.umd.js',
     '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic@2.1.1/bundles/platform-browser-dynamic-testing.umd.js',
-    'store': 'npm:@ngrx/store@2.2.1'
+    'store': 'npm:@ngrx/store@2.2.1',
+    'lazyTestModule': 'src/app/+lazyTest'
   }
 });
 
