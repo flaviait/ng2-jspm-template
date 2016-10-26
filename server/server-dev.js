@@ -2,16 +2,14 @@
 
 const express = require("express");
 const path = require("path");
-const logger = require("log4js").getLogger("server-dev");
 
-const config = require("./config.json");
+const {config, getLogger} = require("ng2-jspm-template-libs");
+
+const logger = getLogger("server-dev");
 
 const app = express();
 
-require("./../dev/hmr");
-require("./../dev/livereload");
-
-app.get("/ports", (req, res) => res.send(require("./config.json").port));
+app.get("/ports", (req, res) => res.send(config.devPorts));
 
 app.use(require("./proxy"));
 app.use(express.static("."));
@@ -19,4 +17,4 @@ app.use(express.static(".tmp"));
 app.get("*", (req, res) =>
   res.sendFile(path.resolve("src/index.dev.html")));
 
-app.listen(config.port.dev, () => logger.info(`Listening on http://localhost:${config.port.dev} ...`));
+app.listen(config.server.dev.port, () => logger.info(`Listening on http://localhost:${config.server.dev.port} ...`));

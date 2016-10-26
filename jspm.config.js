@@ -220,7 +220,7 @@ SystemJS.config({
     'immutable': 'npm:immutable@3.8.1',
     'lodash': 'npm:lodash@4.16.4',
     'ng2-translate': 'npm:ng2-translate@2.5.0',
-    'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
+    'process': 'npm:jspm-nodelibs-process@0.2.0',
     'reflect-metadata': 'npm:reflect-metadata@0.1.8',
     'rxjs': 'npm:rxjs@5.0.0-beta.12',
     'stream': 'npm:jspm-nodelibs-stream@0.2.0',
