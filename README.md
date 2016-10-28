@@ -11,7 +11,15 @@ Clone this repo
 
     git clone https://github.com/flaviait/ng2-jspm-template.git
 
-You need to install a node.js version >= 4.0.0, since this project uses ES2015 language features.
+You need to install a node.js version >= 6.9, since this project uses ES2015 language features, and we only support node versions from the most recent LTS upwards.
+Things might work from 4.x upwards, but we do not provide any official support for this.
+
+For users of [nvm](https://github.com/creationix/nvm), we're providing a `.nvmrc` file, so that you only need to execute:
+```
+nvm install
+nvm use
+```
+We strongly recommend to use nvm (or any other node version manager of your choice).
 
 At the moment of writing this, [WEB-18904](https://youtrack.jetbrains.com/issue/WEB-18904)
 for the JetBrains IDE has not yet been implemented. If you use it, please vote for it :)
