@@ -52,8 +52,7 @@ SystemJS.config({
           'loader': 'plugin-typescript'
         },
         '*.scss': {
-          'loader': 'scss',
-          'typings': true
+          'loader': 'scss'
         }
       }
     }
@@ -67,7 +66,7 @@ SystemJS.config({
       'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.6.0',
       'tty': 'npm:jspm-nodelibs-tty@0.2.0',
       'os': 'npm:jspm-nodelibs-os@0.2.0',
-      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.2.4',
+      'plugin-typescript': 'github:frankwallis/plugin-typescript@5.2.9',
       'http': 'npm:jspm-nodelibs-http@0.2.0',
       'url': 'npm:jspm-nodelibs-url@0.2.0'
     },
@@ -94,7 +93,7 @@ SystemJS.config({
           'has-flag': 'npm:has-flag@1.0.0'
         }
       },
-      'github:frankwallis/plugin-typescript@5.2.4': {
+      'github:frankwallis/plugin-typescript@5.2.9': {
         'map': {
           'typescript': 'npm:typescript@2.0.6'
         }
@@ -221,7 +220,7 @@ SystemJS.config({
     'immutable': 'npm:immutable@3.8.1',
     'lodash': 'npm:lodash@4.16.4',
     'ng2-translate': 'npm:ng2-translate@2.5.0',
-    'process': 'npm:jspm-nodelibs-process@0.2.0',
+    'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'reflect-metadata': 'npm:reflect-metadata@0.1.8',
     'rxjs': 'npm:rxjs@5.0.0-beta.12',
     'stream': 'npm:jspm-nodelibs-stream@0.2.0',
