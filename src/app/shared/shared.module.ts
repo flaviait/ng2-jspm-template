@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 
-import {TranslateModule, TranslateService} from "ng2-translate/ng2-translate";
+import {TranslateModule, TranslateService} from "ng2-translate";
 import each from "lodash/each";
 
 import translations from "../../generated/translations";
