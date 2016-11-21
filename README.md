@@ -7,11 +7,15 @@ You can use it as an inspiration for your own project setups.
 
 ## Setup
 
-Download a certain version of this repository and unzip it:
+Download a stable version of this repository and unzip it:
 
     wget https://github.com/flaviait/ng2-jspm-template/archive/v0.0.1.zip -O ng2-jspm-template.zip
     unzip ng2-jspm-template.zip
     rm ng2-jspm-template.zip
+If you want the most recent stuff (you feel a little bit _adventurous_, hm?), you might as well just clone the repository via:
+```
+git clone --depth=1 https://github.com/flaviait/ng2-jspm-template.git <your-project-name>
+```
 
 You need to install a node.js version >= 6.9, since this project uses ES2015 language features, and we only support node versions from the most recent LTS upwards.
 Things might work from 4.x upwards, but we do not provide any official support for this.
@@ -65,8 +69,8 @@ With `@ngrx/store` the global application state can be kept across module reload
 
 ### Managing JSPM dependencies
 
-Some IDEs don't have JSPM support yet.
-Because of this we have the JSPM dependencies duplicated in the npm configuration.
+Some IDEs don't have (full) JSPM support yet.
+Because of this we have duplicated the JSPM dependencies as dev dependencies in the npm configuration.
 If you don't have JSPM support in your IDE, you should consider to install new JSPM packages
 also via NPM.
 
