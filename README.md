@@ -127,7 +127,7 @@ of the JSPM dependencies and bundling.
 The tooling is configured to work with the default structure of this template.
 But if you need a different project layout or karma configuration for example, you should
 have a look at the config.ts file. This file can be used to override the
-[defaults](https://github.com/flaviait/ng2-jspm-template-libs/blob/configurability/src/config/config.defaults.ts).
+[defaults](https://github.com/flaviait/ng2-template-libs/blob/configurability/src/config/config.defaults.ts).
 It is written in TS, so you can benefit of the type checking which decreases chance
 to end up with an invalid configuration.
-The typings can be found [here](https://github.com/flaviait/ng2-jspm-template-libs/blob/master/src/config/config.interface.ts).
+The typings can be found [here](https://github.com/flaviait/ng2-template-libs/blob/master/src/config/config.interface.ts).

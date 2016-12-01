@@ -3,7 +3,7 @@
 const express = require("express");
 const path = require("path");
 
-const {config, getLogger} = require("ng2-jspm-template-libs");
+const {config, getLogger} = require("ng2-template-libs");
 
 const logger = getLogger("server-dev");
 

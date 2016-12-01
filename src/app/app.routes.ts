@@ -10,5 +10,4 @@ const appRoutes: Routes = [
 
 export const appRoutingProviders: any[] = [];
 
-
 export const APP_ROUTES = RouterModule.forRoot(appRoutes);

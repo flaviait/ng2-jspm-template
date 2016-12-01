@@ -1,4 +1,4 @@
-import {TemplateConfig} from "ng2-jspm-template-libs";
+import {TemplateConfig} from "ng2-template-libs";
 
 const config: TemplateConfig = {
 };
