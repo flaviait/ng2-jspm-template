@@ -1,6 +1,6 @@
 {
   "name": "ng2-jspm-template",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A template for a quick development workflow with angular 2 and jspm",
   "author": {
     "name": "Sven Reglitzki",
