@@ -8,6 +8,11 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "baseUrl": "."
   },
   "files": [
