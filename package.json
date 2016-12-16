@@ -24,14 +24,14 @@
       "lib": "src"
     },
     "dependencies": {
-      "@angular/forms": "npm:@angular/forms@^2.2.1",
-      "@angular/router": "npm:@angular/router@^3.2.1",
+      "@angular/forms": "npm:@angular/forms@^2.3.1",
+      "@angular/router": "npm:@angular/router@^3.3.1",
       "@types/jasmine": "npm:@types/jasmine@^2.5.38",
-      "@types/lodash": "npm:@types/lodash@^4.14.39",
+      "@types/lodash": "npm:@types/lodash@^4.14.42",
       "es6-shim": "github:es-shims/es6-shim@^0.35.0",
       "immutable": "npm:immutable@^3.8.1",
       "lodash": "npm:lodash@^4.17.2",
-      "ng2-translate": "npm:ng2-translate@^2.5.0",
+      "ng2-translate": "npm:ng2-translate@^4.2.0",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3"
     },
     "devDependencies": {
@@ -46,14 +46,14 @@
       "url": "npm:jspm-nodelibs-url@^0.2.0"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@2.2.1",
-      "@angular/compiler": "npm:@angular/compiler@^2.2.1",
-      "@angular/core": "npm:@angular/core@2.2.1",
-      "@angular/http": "npm:@angular/http@2.2.1",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.2.1",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.2.1",
+      "@angular/common": "npm:@angular/common@2.3.1",
+      "@angular/compiler": "npm:@angular/compiler@^2.3.1",
+      "@angular/core": "npm:@angular/core@2.3.1",
+      "@angular/http": "npm:@angular/http@2.3.1",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.3.1",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.3.1",
       "@ngrx/core": "npm:@ngrx/core@^1.2.0",
-      "@ngrx/store": "npm:@ngrx/store@^2.2.1",
+      "@ngrx/store": "npm:@ngrx/store@^2.1.2",
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
       "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
@@ -64,19 +64,19 @@
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "rxjs": "npm:rxjs@5.0.0-beta.12",
+      "rxjs": "npm:rxjs@5.0.0-rc.4",
       "stream": "npm:jspm-nodelibs-stream@^0.2.0",
       "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
       "timers": "npm:jspm-nodelibs-timers@^0.2.0",
       "util": "npm:jspm-nodelibs-util@^0.2.0",
       "vm": "npm:jspm-nodelibs-vm@^0.2.0",
-      "zone.js": "npm:zone.js@^0.6.21"
+      "zone.js": "npm:zone.js@^0.7.2"
     },
     "overrides": {
       "github:socketio/socket.io-client@1.5.0": {
         "main": "socket.io.js"
       },
-      "npm:@angular/common@2.2.1": {
+      "npm:@angular/common@2.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -86,7 +86,7 @@
           }
         }
       },
-      "npm:@angular/compiler@2.2.1": {
+      "npm:@angular/compiler@2.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -96,7 +96,7 @@
           }
         }
       },
-      "npm:@angular/core@2.2.1": {
+      "npm:@angular/core@2.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -106,7 +106,7 @@
           }
         }
       },
-      "npm:@angular/http@2.2.1": {
+      "npm:@angular/http@2.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -116,7 +116,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.2.1": {
+      "npm:@angular/platform-browser-dynamic@2.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -126,7 +126,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser@2.2.1": {
+      "npm:@angular/platform-browser@2.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -136,7 +136,7 @@
           }
         }
       },
-      "npm:@angular/router@3.2.1": {
+      "npm:@angular/router@3.3.1": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -208,14 +208,14 @@
     }
   },
   "devDependencies": {
-    "@angular/common": "^2.2.1",
-    "@angular/compiler": "^2.2.1",
-    "@angular/core": "^2.2.1",
-    "@angular/forms": "^2.2.1",
-    "@angular/http": "^2.2.1",
-    "@angular/platform-browser": "^2.2.1",
-    "@angular/platform-browser-dynamic": "^2.2.1",
-    "@angular/router": "^3.2.1",
+    "@angular/common": "^2.3.1",
+    "@angular/compiler": "^2.3.1",
+    "@angular/core": "^2.3.1",
+    "@angular/forms": "^2.3.1",
+    "@angular/http": "^2.3.1",
+    "@angular/platform-browser": "^2.3.1",
+    "@angular/platform-browser-dynamic": "^2.3.1",
+    "@angular/router": "^3.3.1",
     "@ngrx/core": "^1.2.0",
     "@ngrx/store": "^2.2.1",
     "concurrently": "^3.1.0",
@@ -225,13 +225,13 @@
     "lodash": "^4.17.2",
     "moment": "^2.16.0",
     "ng2-template-libs": "~0.3",
-    "ng2-translate": "^3.1.3",
+    "ng2-translate": "^4.2.0",
     "postcss-cli": "^2.6.0",
     "rimraf": "^2.5.4",
-    "rxjs": "5.0.0-rc.1",
+    "rxjs": "5.0.0-rc.4",
     "typescript": "^2.0.10",
     "wait-for-change": "^1.1.0",
-    "zone.js": "0.6.26"
+    "zone.js": "0.7.2"
   },
   "dependencies": {
     "express": "^4.14.0",

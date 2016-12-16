@@ -32,7 +32,7 @@ SystemJS.config({
       '@ngrx/core': 'index.d.ts',
       '@ngrx/store': 'index.d.ts',
       'immutable': true,
-      'ng2-translate': true,
+      'ng2-translate': 'ng2-translate.d.ts',
       'rxjs': true
     }
   },
@@ -55,6 +55,9 @@ SystemJS.config({
           'loader': 'scss'
         }
       }
+    },
+    'ng2-translate': {
+      'defaultExtension': 'js'
     }
   },
   devConfig: {
@@ -175,13 +178,13 @@ SystemJS.config({
     }
   },
   map: {
-    '@angular/router/testing': 'npm:@angular/router@3.2.1/bundles/router-testing.umd.js',
-    '@angular/common/testing': 'npm:@angular/common@2.2.1/bundles/common-testing.umd.js',
-    '@angular/compiler/testing': 'npm:@angular/compiler@2.2.1/bundles/compiler-testing.umd.js',
-    '@angular/core/testing': 'npm:@angular/core@2.2.1/bundles/core-testing.umd.js',
-    '@angular/http/testing': 'npm:@angular/http@2.2.1/bundles/http-testing.umd.js',
-    '@angular/platform-browser/testing': 'npm:@angular/platform-browser@2.2.1/bundles/platform-browser-testing.umd.js',
-    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic@2.2.1/bundles/platform-browser-dynamic-testing.umd.js',
+    '@angular/router/testing': 'npm:@angular/router@3.3.1/bundles/router-testing.umd.js',
+    '@angular/common/testing': 'npm:@angular/common@2.3.1/bundles/common-testing.umd.js',
+    '@angular/compiler/testing': 'npm:@angular/compiler@2.3.1/bundles/compiler-testing.umd.js',
+    '@angular/core/testing': 'npm:@angular/core@2.3.1/bundles/core-testing.umd.js',
+    '@angular/http/testing': 'npm:@angular/http@2.3.1/bundles/http-testing.umd.js',
+    '@angular/platform-browser/testing': 'npm:@angular/platform-browser@2.3.1/bundles/platform-browser-testing.umd.js',
+    '@angular/platform-browser-dynamic/testing': 'npm:@angular/platform-browser-dynamic@2.3.1/bundles/platform-browser-dynamic-testing.umd.js',
     'jspm/nodelibs-os': 'npm:jspm-nodelibs-os@0.2.0',
     'store': 'npm:@ngrx/store@2.2.1',
     'jspm-nodelibs-os': 'npm:jspm-nodelibs-os@0.2.0'
@@ -195,19 +198,19 @@ SystemJS.config({
     'github:*/*.json'
   ],
   map: {
-    '@types/lodash': 'npm:@types/lodash@4.14.39',
+    '@types/lodash': 'npm:@types/lodash@4.14.42',
     '@types/jasmine': 'npm:@types/jasmine@2.5.38',
     'os': 'npm:jspm-nodelibs-os@0.2.0',
     'assert': 'npm:jspm-nodelibs-assert@0.2.0',
     'path': 'npm:jspm-nodelibs-path@0.2.1',
-    '@angular/router': 'npm:@angular/router@3.2.1',
-    '@angular/common': 'npm:@angular/common@2.2.1',
-    '@angular/compiler': 'npm:@angular/compiler@2.2.1',
-    '@angular/core': 'npm:@angular/core@2.2.1',
-    '@angular/forms': 'npm:@angular/forms@2.2.1',
-    '@angular/http': 'npm:@angular/http@2.2.1',
-    '@angular/platform-browser': 'npm:@angular/platform-browser@2.2.1',
-    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.2.1',
+    '@angular/router': 'npm:@angular/router@3.3.1',
+    '@angular/common': 'npm:@angular/common@2.3.1',
+    '@angular/compiler': 'npm:@angular/compiler@2.3.1',
+    '@angular/core': 'npm:@angular/core@2.3.1',
+    '@angular/forms': 'npm:@angular/forms@2.3.1',
+    '@angular/http': 'npm:@angular/http@2.3.1',
+    '@angular/platform-browser': 'npm:@angular/platform-browser@2.3.1',
+    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@2.3.1',
     '@ngrx/core': 'npm:@ngrx/core@1.2.0',
     '@ngrx/store': 'npm:@ngrx/store@2.2.1',
     'buffer': 'npm:jspm-nodelibs-buffer@0.2.1',
@@ -219,16 +222,16 @@ SystemJS.config({
     'fs': 'npm:jspm-nodelibs-fs@0.2.0',
     'immutable': 'npm:immutable@3.8.1',
     'lodash': 'npm:lodash@4.17.2',
-    'ng2-translate': 'npm:ng2-translate@2.5.0',
-    'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
+    'ng2-translate': 'npm:ng2-translate@4.2.0',
+    'process': 'npm:jspm-nodelibs-process@0.2.0',
     'reflect-metadata': 'npm:reflect-metadata@0.1.8',
-    'rxjs': 'npm:rxjs@5.0.0-beta.12',
+    'rxjs': 'npm:rxjs@5.0.0-rc.4',
     'stream': 'npm:jspm-nodelibs-stream@0.2.0',
     'string_decoder': 'npm:jspm-nodelibs-string_decoder@0.2.0',
     'timers': 'npm:jspm-nodelibs-timers@0.2.0',
     'util': 'npm:jspm-nodelibs-util@0.2.1',
     'vm': 'npm:jspm-nodelibs-vm@0.2.0',
-    'zone.js': 'npm:zone.js@0.6.26'
+    'zone.js': 'npm:zone.js@0.7.2'
   },
   packages: {
     'npm:browserify-aes@1.0.6': {
@@ -363,6 +366,11 @@ SystemJS.config({
         'readable-stream': 'npm:readable-stream@2.1.5'
       }
     },
+    'npm:rxjs@5.0.0-rc.4': {
+      'map': {
+        'symbol-observable': 'npm:symbol-observable@1.0.4'
+      }
+    },
     'npm:timers-browserify@1.4.2': {
       'map': {
         'process': 'npm:process@0.11.9'
@@ -434,11 +442,6 @@ SystemJS.config({
     'npm:jspm-nodelibs-string_decoder@0.2.0': {
       'map': {
         'string_decoder-browserify': 'npm:string_decoder@0.10.31'
-      }
-    },
-    'npm:rxjs@5.0.0-beta.12': {
-      'map': {
-        'symbol-observable': 'npm:symbol-observable@1.0.4'
       }
     },
     'npm:jspm-nodelibs-buffer@0.2.1': {
