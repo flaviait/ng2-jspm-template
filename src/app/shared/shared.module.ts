@@ -1,11 +1,8 @@
-import {NgModule} from "@angular/core";
+import {NgModule, ModuleWithProviders} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 
-import {TranslateModule, TranslateService} from "ng2-translate/ng2-translate";
-import each from "lodash/each";
-
-import translations from "../../generated/translations";
+import {TranslateModule} from "ng2-translate";
 
 // See https://angular.io/docs/ts/latest/guide/ngmodule.html#!#shared-module
 // for an explanation of how to properly create and use a shared module.
@@ -22,10 +19,10 @@ import translations from "../../generated/translations";
   ]
 })
 export class SharedModule {
-  constructor(translate: TranslateService) {
-    each(translations, (translation, lang) => {
-      translate.setTranslation(lang, translation);
-    });
-    translate.use("en");
+
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule
+    };
   }
 }
